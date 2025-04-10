@@ -80,19 +80,19 @@ const Header = () => {
               Home
             </a>
             <a
-              href="#"
+              href="#projects"
               className="block px-3 py-2 rounded-lg text-neutral hover:bg-muted hover:text-accent font-medium transition-colors"
             >
               Projects
             </a>
             <a
-              href="#"
+              href="#skill"
               className="block px-3 py-2 rounded-lg text-neutral hover:bg-muted hover:text-accent font-medium transition-colors"
             >
               Skills
             </a>
             <a
-              href="#"
+              href="#about"
               className="block px-3 py-2 rounded-lg text-neutral hover:bg-muted hover:text-accent font-medium transition-colors"
             >
               About
