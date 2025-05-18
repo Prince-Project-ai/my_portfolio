@@ -156,7 +156,7 @@ const HeroSection = () => {
         />
       </motion.svg>
 
-      <div className="max-w-5xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+      <div className="max-w-5xl mx-auto px-4 relative z-10">
         <div className="flex justify-center">
           <div className="space-y-6 ">
             {/* Introduction */}
@@ -195,9 +195,9 @@ const HeroSection = () => {
               </a>
               <a
                 href="#contact"
-                className="px-6 py-3 rounded-lg outline-none font-medium text-white bg-dark-gray border border-muted hover:border-blue shadow-lg shadow-dark-gray/50 hover:shadow-xl hover:shadow-dark-gray/60 transition-all duration-300"
+                className="px-6 py-3 rounded-lg border border-white text-white hover:bg-white hover:text-dark transition-all duration-300"
               >
-                Get in Touch
+                Let’s Connect
               </a>
             </div>
 
@@ -236,4 +236,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default React.memo(HeroSection);

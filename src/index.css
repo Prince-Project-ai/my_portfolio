@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+* {
+  outline: 1px dashed greenyellow;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -46,7 +50,8 @@ body::before {
   width: 100%;
   position: absolute;
   inset: 0px;
-  pointer-events: none; /* Changed from 'all' to 'none' */
+  pointer-events: none;
+  /* Changed from 'all' to 'none' */
   z-index: 1000;
   height: 100%;
   background-size: 128px;

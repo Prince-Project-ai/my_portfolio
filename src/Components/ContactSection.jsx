@@ -60,7 +60,7 @@ const ContactSection = () => {
       <div className="absolute top-1/4 right-1/4 w-80 h-80 rounded-full bg-blue-500 opacity-5 blur-3xl"></div>
       <div className="absolute bottom-1/3 left-1/3 w-72 h-72 rounded-full bg-purple-500 opacity-5 blur-3xl"></div>
 
-      <div className="relative max-w-7xl mx-auto px-4 z-10">
+      <div className="relative max-w-5xl mx-auto px-4 z-10">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             Get In Touch
@@ -216,5 +216,4 @@ const Alert = ({ type, message }) => {
   );
 };
 
-export default ContactSection;
-
+export default React.memo(ContactSection);

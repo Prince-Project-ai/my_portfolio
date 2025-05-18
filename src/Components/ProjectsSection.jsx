@@ -265,7 +265,7 @@ const ProjectsSection = () => {
     <section id="projects" className="relative w-full py-20 px-4 overflow-hidden bg-transparent">
       <div className="absolute top-1/4 -left-20 w-80 h-80 bg-blue-500 opacity-20 blur-3xl" />
       <div className="absolute bottom-1/4 -right-20 w-64 h-64 rounded-full bg-purple-500 opacity-10 blur-3xl" />
-      <div className="relative max-w-5xl mx-auto px-4 md:px-6 lg:px-8 z-10">
+      <div className="relative max-w-5xl mx-auto px-4 z-10">
         <div className="flex flex-col items-center mb-16">
           <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-500/10 text-primary text-sm font-medium mb-4">
             <Github size={16} className="mr-2" />
@@ -285,8 +285,8 @@ const ProjectsSection = () => {
               key={key}
               onClick={() => setActiveFilter(key)}
               className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeFilter === key
-                  ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg'
-                  : 'bg-dark-gray border border-border-design text-gray-300 hover:bg-gray-700 hover:border-blue-500 group'
+                ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg'
+                : 'bg-dark-gray border border-border-design text-gray-300 hover:bg-gray-700 hover:border-blue-500 group'
                 }`}
             >
               {label}
@@ -421,4 +421,4 @@ const ProjectsSection = () => {
   );
 };
 
-export default ProjectsSection;
+export default React.memo(ProjectsSection);

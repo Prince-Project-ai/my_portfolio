@@ -8,7 +8,7 @@ const FooterSection = () => {
             <div className="absolute top-0 -left-20 w-64 h-64 rounded-full bg-primary opacity-10 blur-3xl"></div>
             <div className="absolute bottom-0 -right-20 w-64 h-64 rounded-full bg-secondary opacity-10 blur-3xl"></div>
 
-            <div className="relative max-w-5xl mx-auto px-4 md:px-6 lg:px-8 z-10">
+            <div className="relative max-w-5xl mx-auto px-4 z-10">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {/* Brand & Contact Info */}
                     <div className="space-y-4">
@@ -91,4 +91,4 @@ const FooterSection = () => {
     );
 };
 
-export default FooterSection;
+export default React.memo(FooterSection);

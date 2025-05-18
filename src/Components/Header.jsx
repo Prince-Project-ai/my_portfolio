@@ -10,13 +10,13 @@ const Header = () => {
 
   return (
     <header
-      className='header max-w-5xl top-2'>
-      <div className="sub_header w-full mx-auto py-3">
-        <div className="flex justify-between items-center px-4">
+      className='header max-w-5xl px-4 top-2'>
+      <div className="sub_header w-full mx-auto border-2 border-border-design py-2">
+        <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <span className="text-xl md:text-2xl font-extrabold bg-gradient-to-r from-blue to-secondary bg-clip-text text-transparent">
-              Portfolio
+              Prince Bavishi
             </span>
           </div>
 
@@ -61,7 +61,7 @@ const Header = () => {
             {/* Mobile menu button */}
             <button
               onClick={toggleMobileMenu}
-              className="md:hidden p-2 rounded-lg bg-blue text-white hover:bg-accent focus:outline-none focus:ring-2 focus:ring-accent transition-colors"
+              className="md:hidden p-2 rounded-lg bg-blue text-white hover:bg-accent focus:outline-none  transition-colors"
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -71,7 +71,7 @@ const Header = () => {
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden backdrop-blur-[10px] border-t  border-muted shadow-lg">
+        <div className="md:hidden backdrop-blur-[10px]  border-t-none  border-border-design shadow-lg">
           <div className="container mx-auto px-4 py-3 space-y-2">
             <a
               href="#"
@@ -112,4 +112,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default React.memo(Header);
