@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
-* {
+/* * {
   outline: 1px dashed greenyellow;
-}
+} */
 
 html {
   scroll-behavior: smooth;
