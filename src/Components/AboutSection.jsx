@@ -8,7 +8,7 @@ const AboutMeSection = () => {
             <div className="absolute top-1/4 -left-20 w-64 h-64 rounded-full bg-primary opacity-10 blur-3xl"></div>
             <div className="absolute bottom-1/4 -right-20 w-64 h-64 rounded-full bg-secondary opacity-10 blur-3xl"></div>
 
-            <div className="relative max-w-5xl mx-auto px-4 z-10">
+            <div className="relative max-w-5xl mx-auto z-10 px-0 sm:px-4 md:px-4">
                 {/* Section Header */}
                 <div className="flex flex-col items-center mb-15">
                     <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
@@ -16,7 +16,7 @@ const AboutMeSection = () => {
                         <span>About Me</span>
                     </div>
 
-                    <h2 className="text-4xl sm:text-5xl font-display font-bold text-white mb-4 text-center">
+                    <h2 className="text-4xl sm:text-5xl px-0  sm:px-4 font-display font-bold text-white mb-4 text-center">
                         Get to Know <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Me</span>
                     </h2>
 
@@ -27,7 +27,7 @@ const AboutMeSection = () => {
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
                     {/* Profile Column */}
-                    <div className="bg-dark-gray rounded-xl p-6 border border-border-design order-0 lg:order-1 lg:col-span-1">
+                    <div className="bg-dark-gray rounded-xl p-4 border border-border-design order-0 lg:order-1 lg:col-span-1">
                         <h3 className="text-2xl font-bold text-white text-center mb-4">Prince Bavishi</h3>
                         <p className="text-primary text-center font-medium mb-6">MERN Stack Developer</p>
 
@@ -101,7 +101,7 @@ const AboutMeSection = () => {
 
                     {/* Main Content */}
                     <div className="order-1 lg:order-2 lg:col-span-2 space-y-8">
-                        <div className="bg-dark-gray rounded-xl p-6 border border-border-design">
+                        <div className="bg-dark-gray rounded-xl p-4 border border-border-design">
                             <h3 className="text-2xl font-bold text-white mb-4">Who am I?</h3>
                             <p className="text-neutral/90 leading-relaxed mb-4">
                                 I'm Prince Bavishi, a passionate MERN Stack Developer with a strong foundation in building

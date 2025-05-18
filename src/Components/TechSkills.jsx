@@ -69,7 +69,7 @@ const TechSkills = () => {
       <div className="absolute top-1/4 -left-20 w-64 h-64 rounded-full bg-primary opacity-10 blur-3xl"></div>
       <div className="absolute bottom-1/4 -right-20 w-64 h-64 rounded-full bg-secondary opacity-10 blur-3xl"></div>
 
-      <div className="relative max-w-5xl mx-auto px-4 z-10">
+      <div className="relative max-w-5xl mx-auto z-10">
         {/* Section Header */}
         <div className="flex flex-col items-center mb-15">
           <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">

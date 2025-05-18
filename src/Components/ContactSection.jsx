@@ -60,7 +60,7 @@ const ContactSection = () => {
       <div className="absolute top-1/4 right-1/4 w-80 h-80 rounded-full bg-blue-500 opacity-5 blur-3xl"></div>
       <div className="absolute bottom-1/3 left-1/3 w-72 h-72 rounded-full bg-purple-500 opacity-5 blur-3xl"></div>
 
-      <div className="relative max-w-5xl mx-auto px-4 z-10">
+      <div className="relative max-w-5xl mx-auto px-0 sm:px-4 z-10">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             Get In Touch
@@ -71,10 +71,10 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Contact Info */}
           <div className="lg:col-span-1 space-y-8">
-            <div className="bg-white/5 rounded-2xl p-8 border border-white/10 shadow-lg backdrop-blur-sm">
+            <div className="bg-white/5 rounded-2xl p-4 border border-white/10 shadow-lg backdrop-blur-sm">
               <h3 className="text-2xl font-semibold mb-6 text-white">Contact Information</h3>
               <div className="space-y-6">
                 <ContactItem icon={<Mail className="w-6 h-6 text-primary break-all" />} label="Email" value="bavishiprince90@gmail.com" href="mailto:bavishiprince90@gmail.com" />
@@ -94,7 +94,7 @@ const ContactSection = () => {
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <div className="bg-white/5 rounded-2xl p-8 border border-white/10 shadow-lg backdrop-blur-sm">
+            <div className="bg-white/5 rounded-2xl p-4 border border-white/10 shadow-lg backdrop-blur-sm">
               <h3 className="text-2xl font-semibold mb-6 text-white">Send Me a Message</h3>
 
               <form onSubmit={handleSubmit} className="space-y-6">

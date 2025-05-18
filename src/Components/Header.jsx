@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <header
       className='header max-w-5xl px-4 top-2'>
-      <div className="sub_header w-full mx-auto border-2 border-border-design py-2">
+      <div className="sub_header w-full px-4 mx-auto border-2 border-border-design py-2">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
@@ -24,25 +24,25 @@ const Header = () => {
           <nav className="hidden space-x-4 md:flex items-center">
             <a
               href="#"
-              className="text-neutral hover:text-accent font-medium transition-colors relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full"
+              className="text-neutral hover:text-primary font-medium transition-colors relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all hover:after:w-full"
             >
               Home
             </a>
             <a
               href="#projects"
-              className="text-neutral hover:text-accent font-medium transition-colors relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full"
+              className="text-neutral hover:text-primary font-medium transition-colors relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all hover:after:w-full"
             >
               Projects
             </a>
             <a
               href="#skill"
-              className="text-neutral hover:text-accent font-medium transition-colors relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full"
+              className="text-neutral hover:text-primary font-medium transition-colors relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all hover:after:w-full"
             >
               Skills
             </a>
             <a
               href="#about"
-              className="text-neutral hover:text-accent  font-medium transition-colors relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full"
+              className="text-neutral hover:text-primary  font-medium transition-colors relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all hover:after:w-full"
             >
               About
             </a>
@@ -75,25 +75,25 @@ const Header = () => {
           <div className="container mx-auto px-4 py-3 space-y-2">
             <a
               href="#"
-              className="block px-3 py-2 rounded-lg text-neutral hover:bg-muted hover:text-accent font-medium transition-colors"
+              className="block px-3 py-2 rounded-lg text-neutral hover:bg-muted hover:text-primary font-medium transition-colors"
             >
               Home
             </a>
             <a
               href="#projects"
-              className="block px-3 py-2 rounded-lg text-neutral hover:bg-muted hover:text-accent font-medium transition-colors"
+              className="block px-3 py-2 rounded-lg text-neutral hover:bg-muted hover:text-primary font-medium transition-colors"
             >
               Projects
             </a>
             <a
               href="#skill"
-              className="block px-3 py-2 rounded-lg text-neutral hover:bg-muted hover:text-accent font-medium transition-colors"
+              className="block px-3 py-2 rounded-lg text-neutral hover:bg-muted hover:text-primary font-medium transition-colors"
             >
               Skills
             </a>
             <a
               href="#about"
-              className="block px-3 py-2 rounded-lg text-neutral hover:bg-muted hover:text-accent font-medium transition-colors"
+              className="block px-3 py-2 rounded-lg text-neutral hover:bg-muted hover:text-primary font-medium transition-colors"
             >
               About
             </a>

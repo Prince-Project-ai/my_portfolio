@@ -265,7 +265,7 @@ const ProjectsSection = () => {
     <section id="projects" className="relative w-full py-20 px-4 overflow-hidden bg-transparent">
       <div className="absolute top-1/4 -left-20 w-80 h-80 bg-blue-500 opacity-20 blur-3xl" />
       <div className="absolute bottom-1/4 -right-20 w-64 h-64 rounded-full bg-purple-500 opacity-10 blur-3xl" />
-      <div className="relative max-w-5xl mx-auto px-4 z-10">
+      <div className="relative max-w-5xl mx-auto px-0 sm:px-4 z-10">
         <div className="flex flex-col items-center mb-16">
           <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-500/10 text-primary text-sm font-medium mb-4">
             <Github size={16} className="mr-2" />
@@ -358,7 +358,7 @@ const ProjectsSection = () => {
                     </div>
                   </div>
 
-                  <div className="p-6 flex flex-col flex-1">
+                  <div className="p-4 sm:p-6 flex flex-col flex-1">
                     <div className="flex justify-between items-start mb-2">
                       <h3 className="text-xl font-bold text-white">{project.name}</h3>
                       <span className="text-xs text-gray-400">{project.duration}</span>
