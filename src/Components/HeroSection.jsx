@@ -1,7 +1,7 @@
-import React from 'react';
-import { Linkedin, Mail } from 'lucide-react';
+import React from "react";
+import { Linkedin, Mail } from "lucide-react";
 import { NavLink } from "react-router-dom";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
@@ -26,13 +26,13 @@ const HeroSection = () => {
           pathLength: 1,
           opacity: 0.5,
           y: [0, -10, 0],
-          rotate: [0, 5, 0]
+          rotate: [0, 5, 0],
         }}
         transition={{
           pathLength: { duration: 2, ease: "easeInOut" },
           opacity: { duration: 1 },
           y: { repeat: Infinity, duration: 4, ease: "easeInOut" },
-          rotate: { repeat: Infinity, duration: 6, ease: "easeInOut" }
+          rotate: { repeat: Infinity, duration: 6, ease: "easeInOut" },
         }}
       >
         <motion.path
@@ -43,7 +43,13 @@ const HeroSection = () => {
           fill="none"
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
-          transition={{ duration: 2, ease: "easeInOut", repeat: Infinity, repeatType: "reverse", repeatDelay: 1 }}
+          transition={{
+            duration: 2,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatType: "reverse",
+            repeatDelay: 1,
+          }}
         />
       </motion.svg>
 
@@ -84,7 +90,12 @@ const HeroSection = () => {
           fill="none"
           initial={{ scale: 0 }}
           animate={{ scale: [0, 1, 0] }}
-          transition={{ duration: 4, delay: 2, ease: "easeInOut", repeat: Infinity }}
+          transition={{
+            duration: 4,
+            delay: 2,
+            ease: "easeInOut",
+            repeat: Infinity,
+          }}
         />
       </motion.svg>
 
@@ -115,13 +126,13 @@ const HeroSection = () => {
             initial={{ opacity: 0.2 }}
             animate={{
               opacity: [0.2, 0.8, 0.2],
-              r: [3, 4, 3]
+              r: [3, 4, 3],
             }}
             transition={{
               duration: 3,
               delay: i * 0.1,
               repeat: Infinity,
-              repeatType: "reverse"
+              repeatType: "reverse",
             }}
           />
         ))}
@@ -152,7 +163,13 @@ const HeroSection = () => {
           fill="none"
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
-          transition={{ duration: 3, ease: "easeInOut", repeat: Infinity, repeatType: "loop", repeatDelay: 0.5 }}
+          transition={{
+            duration: 3,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatType: "loop",
+            repeatDelay: 0.5,
+          }}
         />
       </motion.svg>
 
@@ -166,23 +183,33 @@ const HeroSection = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-blue"></span>
                 </span>
-                Available for new projects
+                Software Developer Intern @ Softrefine Technology
               </div>
             </div>
 
             {/* Main Heading */}
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-tight text-center">
-              Full-Stack Developer
-              <span className="bg-gradient-to-r from-blue to-secondary bg-clip-text text-transparent block leading-14 font-display">&</span>{' '}
               <span className="bg-gradient-to-r from-blue to-secondary bg-clip-text text-transparent">
-                MERN Specialist
+                Angular Developer
+              </span>
+              <span className="bg-gradient-to-r from-blue to-secondary bg-clip-text text-transparent block leading-14 font-display">
+                Transitioning to
+              </span>{" "}
+              <span className="bg-gradient-to-r from-blue to-secondary bg-clip-text text-transparent">
+                Java Full-Stack
               </span>
             </h1>
 
             {/* Description */}
-            <p className="text-lg md:text-xl text-neutral leading-relaxed tracking-wide text-center">
-              I build modern web applications with React, Node.js, Express, and MongoDB.
-              Passionate about creating intuitive user experiences with clean, efficient code.
+            <p className="text-lg md:text-xl text-neutral leading-relaxed tracking-wide text-center max-w-3xl mx-auto">
+              Building enterprise-ready applications with Angular while
+              mastering Spring Boot.
+              <br className="hidden md:block" />
+              MERN stack veteran who writes{" "}
+              <span className="text-blue">modular, scalable code</span> that
+              survives
+              <span className="text-secondary"> three future requirements</span>
+              .
             </p>
 
             {/* CTA Buttons */}
@@ -191,19 +218,21 @@ const HeroSection = () => {
                 href="#projects"
                 className="px-6 py-3 rounded-lg text-white font-medium bg-blue hover:opacity-70 shadow-lg shadow-blue/20 hover:shadow-xl hover:shadow-blue/30 outline-none transition-all duration-300"
               >
-                View My Work
+                See My Transition Projects
               </a>
               <a
                 href="#contact"
                 className="px-6 py-3 rounded-lg border border-white text-white hover:bg-white hover:text-dark transition-all duration-300"
               >
-                Let’s Connect
+                Discuss Java Opportunities
               </a>
             </div>
 
             {/* Social Links */}
             <div className="pt-6">
-              <p className="text-sm text-end text-muted mb-3">Connect with me:</p>
+              <p className="text-sm text-end text-muted mb-3">
+                Connect with me:
+              </p>
               <div className="flex justify-end gap-3">
                 <NavLink
                   to="https://github.com/Prince-Project-ai"
@@ -211,7 +240,21 @@ const HeroSection = () => {
                   rel="noopener noreferrer"
                   className="size-12 rounded-2xl flex items-center justify-center bg-dark-gray text-muted hover:text-blue hover:bg-muted transition-colors"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-github-icon lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /><path d="M9 18c-4.51 2-5-2-7-2" /></svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="lucide lucide-github-icon lucide-github"
+                  >
+                    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                    <path d="M9 18c-4.51 2-5-2-7-2" />
+                  </svg>
                 </NavLink>
                 <NavLink
                   to="www.linkedin.com/in/prince-bavishi-58638b250"
