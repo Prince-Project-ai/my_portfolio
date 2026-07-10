@@ -33,29 +33,37 @@ import PhotoShop from "../assets/adobe_photoshop.svg";
 const TechSkills = () => {
   // Technology data
   const technologies = [
+    { name: "Angular", icon: null },
+    { name: "TypeScript", icon: null },
+    { name: "React.js", icon: Reacts },
     { name: "HTML5", icon: Html5 },
     { name: "CSS3", icon: Css3 },
+    { name: "SCSS", icon: null },
     { name: "JavaScript", icon: Js },
-    { name: "React.js", icon: Reacts },
-    { name: "jQuery", icon: Jquery },
     { name: "Tailwind CSS", icon: Tailwind },
     { name: "Bootstrap 5", icon: Bootstrap },
-    { name: "PHP", icon: Php },
+    { name: "Angular Material", icon: null },
     { name: "Node.js", icon: Nodejs },
     { name: "Express.js", icon: Express },
+    { name: "NestJS", icon: null },
+    { name: "PHP", icon: Php },
     { name: "MongoDB", icon: Mongodb },
     { name: "MySQL", icon: MySQL },
+    { name: "PostgreSQL", icon: null },
     { name: "Git", icon: Git },
+    { name: "GitHub", icon: Github },
+    { name: "Azure DevOps", icon: null },
+    { name: "Docker", icon: null },
     { name: "Postman", icon: Postman },
-    { name: "GitHub", icon: Github }, // Use lucide-react Github icon or import an SVG
     { name: "npm", icon: Npm },
+    { name: "jQuery", icon: Jquery },
     { name: "AJAX", icon: Ajax },
-    { name: "shadcn", icon: Shadcn }, // No icon provided
-    { name: "VS Code", icon: Vscode }, // No icon provided
-    { name: "JWTToken", icon: Jwt }, // No icon provided
-    { name: "Netlify", icon: Netlify }, // No icon provided
-    { name: "Canva", icon: Canva }, // No icon provided
-    { name: "Photoshop", icon: PhotoShop }, // No icon provided
+    { name: "shadcn", icon: Shadcn },
+    { name: "VS Code", icon: Vscode },
+    { name: "JWT", icon: Jwt },
+    { name: "Netlify", icon: Netlify },
+    { name: "Canva", icon: Canva },
+    { name: "Photoshop", icon: PhotoShop },
   ];
 
   // Remove duplicates (if any)

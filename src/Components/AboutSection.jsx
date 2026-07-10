@@ -29,7 +29,7 @@ const AboutMeSection = () => {
                     {/* Profile Column */}
                     <div className="bg-dark-gray rounded-xl p-4 border border-border-design order-0 lg:order-1 lg:col-span-1">
                         <h3 className="text-2xl font-bold text-white text-center mb-4">Prince Bavishi</h3>
-                        <p className="text-primary text-center font-medium mb-6">MERN Stack Developer</p>
+                        <p className="text-primary text-center font-medium mb-6">Frontend Developer</p>
 
                         <div className="space-y-4">
                             <div className="flex items-center gap-3">
@@ -65,7 +65,7 @@ const AboutMeSection = () => {
                                 </div>
                                 <div>
                                     <h4 className="text-sm text-muted">Location</h4>
-                                    <p className="text-white">Amreli, Gujarat, India</p>
+                                    <p className="text-white">Rajkot, Gujarat, India</p>
                                 </div>
                             </div>
 
@@ -86,14 +86,14 @@ const AboutMeSection = () => {
                             <h4 className="text-lg font-bold text-white mb-4">Education</h4>
                             <div className="space-y-4">
                                 <div>
-                                    <p className="text-sm text-muted">06/2022 - 03/2025</p>
-                                    <h5 className="text-white font-medium">Bachelor of Computer Application (BCA)</h5>
-                                    <p className="text-neutral/80">Saurashtra University - Rajkot</p>
+                                    <p className="text-sm text-muted">2025 - 2027</p>
+                                    <h5 className="text-white font-medium">Master of Computer Application (MCA)</h5>
+                                    <p className="text-neutral/80">BAOU - Rajkot</p>
                                 </div>
                                 <div>
-                                    <p className="text-sm text-muted">06/2021 - 03/2022</p>
-                                    <h5 className="text-white font-medium">Higher Secondary School</h5>
-                                    <p className="text-neutral/80">Dipak Highschool - Amreli</p>
+                                    <p className="text-sm text-muted">2022 - 2025</p>
+                                    <h5 className="text-white font-medium">Bachelor of Computer Application (BCA)</h5>
+                                    <p className="text-neutral/80">Saurashtra University - Rajkot</p>
                                 </div>
                             </div>
                         </div>
@@ -104,20 +104,20 @@ const AboutMeSection = () => {
                         <div className="bg-dark-gray rounded-xl p-4 border border-border-design">
                             <h3 className="text-2xl font-bold text-white mb-4">Who am I?</h3>
                             <p className="text-neutral/90 leading-relaxed mb-4">
-                                I'm Prince Bavishi, a passionate MERN Stack Developer with a strong foundation in building
-                                responsive and scalable web applications. As a problem solver and creative thinker,
-                                I strive to create clean, efficient code while continuously improving my skills in the ever-evolving
-                                world of web development.
+                                I'm Prince Bavishi, a Software Engineer with 1 year of professional experience developing
+                                scalable web applications using Angular, TypeScript, JavaScript, HTML, CSS, and modern
+                                frontend technologies.
                             </p>
                             <p className="text-neutral/90 leading-relaxed mb-4">
-                                Currently pursuing my Bachelor's in Computer Application, I'm committed to enhancing my technical expertise
-                                while working on real-world projects that solve practical problems. I specialize in building
-                                end-to-end applications using the MERN stack (MongoDB, Express.js, React.js, and Node.js) along with
-                                modern UI frameworks like Tailwind CSS.
+                                Experienced in building reusable UI components, integrating RESTful APIs, resolving
+                                production issues, optimizing application performance, and collaborating with
+                                cross-functional teams in Agile environments. I possess strong fundamentals in Core Java,
+                                Object-Oriented Programming, SQL, databases, and backend development concepts.
                             </p>
                             <p className="text-neutral/90 leading-relaxed">
-                                I'm excited about opportunities that challenge me to grow as a developer and allow me to contribute
-                                to innovative solutions in a dynamic development environment.
+                                Passionate about learning new technologies and building modern, scalable web applications.
+                                Currently pursuing my MCA while contributing to enterprise-level Angular-based products
+                                at Softrefine Technology.
                             </p>
                         </div>
                     </div>

@@ -183,33 +183,30 @@ const HeroSection = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-blue"></span>
                 </span>
-                Software Developer Intern @ Softrefine Technology
+                Software Developer (Angular) @ Softrefine Technology
               </div>
             </div>
 
             {/* Main Heading */}
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-tight text-center">
               <span className="bg-gradient-to-r from-blue to-secondary bg-clip-text text-transparent">
-                Angular Developer
+                I Build Scalable
               </span>
               <span className="bg-gradient-to-r from-blue to-secondary bg-clip-text text-transparent block leading-14 font-display">
-                Transitioning to
+                Web Applications
               </span>{" "}
               <span className="bg-gradient-to-r from-blue to-secondary bg-clip-text text-transparent">
-                Java Full-Stack
+                With Angular
               </span>
             </h1>
 
             {/* Description */}
             <p className="text-lg md:text-xl text-neutral leading-relaxed tracking-wide text-center max-w-3xl mx-auto">
-              Building enterprise-ready applications with Angular while
-              mastering Spring Boot.
+              Software Engineer with 1+ year of experience crafting
               <br className="hidden md:block" />
-              MERN stack veteran who writes{" "}
-              <span className="text-blue">modular, scalable code</span> that
-              survives
-              <span className="text-secondary"> three future requirements</span>
-              .
+              <span className="text-blue"> high-performance frontend solutions</span>,
+              integrating RESTful APIs &amp;
+              <span className="text-secondary"> optimizing app performance by 40%</span>.
             </p>
 
             {/* CTA Buttons */}
@@ -218,13 +215,13 @@ const HeroSection = () => {
                 href="#projects"
                 className="px-6 py-3 rounded-lg text-white font-medium bg-blue hover:opacity-70 shadow-lg shadow-blue/20 hover:shadow-xl hover:shadow-blue/30 outline-none transition-all duration-300"
               >
-                See My Transition Projects
+                View My Projects
               </a>
               <a
                 href="#contact"
                 className="px-6 py-3 rounded-lg border border-white text-white hover:bg-white hover:text-dark transition-all duration-300"
               >
-                Discuss Java Opportunities
+                Get In Touch
               </a>
             </div>
 

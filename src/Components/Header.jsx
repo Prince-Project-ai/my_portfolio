@@ -29,10 +29,16 @@ const Header = () => {
               Home
             </a>
             <a
-              href="#projects"
+              href="#about"
+              className="text-neutral hover:text-primary  font-medium transition-colors relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all hover:after:w-full"
+            >
+              About
+            </a>
+            <a
+              href="#experience"
               className="text-neutral hover:text-primary font-medium transition-colors relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all hover:after:w-full"
             >
-              Projects
+              Experience
             </a>
             <a
               href="#skill"
@@ -41,10 +47,10 @@ const Header = () => {
               Skills
             </a>
             <a
-              href="#about"
-              className="text-neutral hover:text-primary  font-medium transition-colors relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all hover:after:w-full"
+              href="#projects"
+              className="text-neutral hover:text-primary font-medium transition-colors relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all hover:after:w-full"
             >
-              About
+              Projects
             </a>
           </nav>
 
@@ -80,10 +86,16 @@ const Header = () => {
               Home
             </a>
             <a
-              href="#projects"
+              href="#about"
               className="block px-3 py-2 rounded-lg text-neutral hover:bg-muted hover:text-primary font-medium transition-colors"
             >
-              Projects
+              About
+            </a>
+            <a
+              href="#experience"
+              className="block px-3 py-2 rounded-lg text-neutral hover:bg-muted hover:text-primary font-medium transition-colors"
+            >
+              Experience
             </a>
             <a
               href="#skill"
@@ -92,10 +104,10 @@ const Header = () => {
               Skills
             </a>
             <a
-              href="#about"
+              href="#projects"
               className="block px-3 py-2 rounded-lg text-neutral hover:bg-muted hover:text-primary font-medium transition-colors"
             >
-              About
+              Projects
             </a>
             <div className="pt-2 pb-3">
               <a

@@ -5,6 +5,7 @@ import ContactSection from "./Components/ContactSection";
 import ProjectsSection from "./Components/ProjectsSection";
 import TechSkills from "./Components/TechSkills";
 import AboutSection from "./Components/AboutSection";
+import ExperienceSection from "./Components/ExperienceSection";
 import FooterSection from "./Components/FooterSection";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Header />
       <HeroSection />
       <AboutSection />
+      <ExperienceSection />
       <TechSkills />
       <ProjectsSection />
       <ContactSection />
