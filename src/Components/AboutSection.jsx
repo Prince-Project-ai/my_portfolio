@@ -77,7 +77,7 @@ const AboutMeSection = () => {
                                 </div>
                                 <div>
                                     <h4 className="text-sm text-muted">GitHub</h4>
-                                    <p className="text-white">Prince-Project-ai</p>
+                                    <p className="text-white">PrinceDev90</p>
                                 </div>
                             </div>
                         </div>

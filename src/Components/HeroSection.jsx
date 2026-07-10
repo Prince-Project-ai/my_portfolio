@@ -192,7 +192,7 @@ const HeroSection = () => {
               <span className="bg-gradient-to-r from-blue to-secondary bg-clip-text text-transparent">
                 I Build Scalable
               </span>
-              <span className="bg-gradient-to-r from-blue to-secondary bg-clip-text text-transparent block leading-14 font-display">
+              <span className="bg-gradient-to-r from-blue to-secondary bg-clip-text text-transparent block font-display">
                 Web Applications
               </span>{" "}
               <span className="bg-gradient-to-r from-blue to-secondary bg-clip-text text-transparent">
@@ -232,7 +232,7 @@ const HeroSection = () => {
               </p>
               <div className="flex justify-end gap-3">
                 <NavLink
-                  to="https://github.com/Prince-Project-ai"
+                  to="https://github.com/PrinceDev90"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="size-12 rounded-2xl flex items-center justify-center bg-dark-gray text-muted hover:text-blue hover:bg-muted transition-colors"

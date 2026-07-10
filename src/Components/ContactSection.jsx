@@ -84,7 +84,7 @@ const ContactSection = () => {
               <div className="mt-10">
                 <h4 className="text-lg font-medium mb-4 text-white">Connect with me</h4>
                 <div className="flex gap-4">
-                  <SocialIcon link="https://github.com/Prince-Project-ai" Icon={Github} />
+                  <SocialIcon link="https://github.com/PrinceDev90" Icon={Github} />
                   <SocialIcon link="https://www.linkedin.com/in/prince-bavishi-58638b250/" Icon={Linkedin} />
                   <SocialIcon link="https://x.com/PrinceBavishi10" Icon={Twitter} />
                 </div>
