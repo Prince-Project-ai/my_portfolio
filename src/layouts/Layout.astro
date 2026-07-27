@@ -1,0 +1,199 @@
+---
+import { site } from "../data/site";
+import "../index.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  ogImage?: string;
+}
+
+const {
+  title = "Prince Bavishi — Full Stack Engineer in India | Angular, Node.js, Java",
+  description =
+    "Prince Bavishi is a Full Stack Engineer based in Rajkot, Gujarat, India, with professional experience building scalable production web applications across Angular, TypeScript, React, Node.js, Express, NestJS, Core Java and SQL. Currently leading three modules of an AI-assisted applicant tracking system at Softrefine Technology.",
+  keywords =
+    "Prince Bavishi, Full Stack Engineer, Full Stack Developer, Full Stack Engineer India, Full Stack Developer India, Software Engineer India, Angular Developer, Angular Developer India, React Developer, Node.js Developer, Express.js Developer, NestJS Developer, Java Developer, Core Java, TypeScript Developer, JavaScript Developer, Frontend Engineer, Backend Developer, MEAN Stack Developer, MERN Stack Developer, REST API Development, SQL Developer, MySQL, PostgreSQL, MongoDB, Angular Material, RxJS, SCSS, Tailwind CSS, Bootstrap 5, Docker, Azure DevOps, Git, Hibernate, Java Servlet, JWT Authentication, Scalable Web Applications, Web Application Performance Optimization, Software Developer Rajkot, Full Stack Developer Rajkot, Full Stack Developer Gujarat, Software Engineer Gujarat, Hire Full Stack Developer India, Freelance Full Stack Developer India, Softrefine Technology, Talent Recruit, Applicant Tracking System, ATS Development, OutreachPro, Portfolio, Software Engineer Portfolio",
+  ogImage = "/og-image.png",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? site.url).href;
+const ogImageURL = new URL(ogImage, Astro.site ?? site.url).href;
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Prince Bavishi",
+  alternateName: "Prince Bavishi — Full Stack Engineer",
+  url: site.url,
+  image: ogImageURL,
+  jobTitle: "Full Stack Engineer",
+  description:
+    "Full Stack Engineer with professional experience building scalable production web applications across Angular, TypeScript, React, Node.js, Express, NestJS, Core Java and SQL databases.",
+  email: `mailto:${site.email}`,
+  telephone: site.phone,
+  nationality: { "@type": "Country", name: "India" },
+  worksFor: {
+    "@type": "Organization",
+    name: "Softrefine Technology Pvt. Ltd.",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Rajkot",
+      addressRegion: "Gujarat",
+      addressCountry: "IN",
+    },
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Rajkot",
+    addressRegion: "Gujarat",
+    postalCode: "360001",
+    addressCountry: "IN",
+  },
+  sameAs: [site.github, site.linkedin, site.twitter],
+  alumniOf: [
+    {
+      "@type": "EducationalOrganization",
+      name: "Babasaheb Ambedkar Open University",
+      address: { "@type": "PostalAddress", addressLocality: "Rajkot", addressCountry: "IN" },
+    },
+    {
+      "@type": "EducationalOrganization",
+      name: "Saurashtra University",
+      address: { "@type": "PostalAddress", addressLocality: "Rajkot", addressCountry: "IN" },
+    },
+  ],
+  hasOccupation: {
+    "@type": "Occupation",
+    name: "Full Stack Engineer",
+    occupationLocation: { "@type": "Country", name: "India" },
+    skills:
+      "Angular, React.js, TypeScript, JavaScript, Node.js, Express.js, NestJS, Core Java, Hibernate, REST API design, MySQL, PostgreSQL, MongoDB, SCSS, Tailwind CSS, Docker, Azure DevOps, Git",
+  },
+  knowsAbout: [
+    "Full Stack Development",
+    "Angular",
+    "React.js",
+    "TypeScript",
+    "JavaScript",
+    "Node.js",
+    "Express.js",
+    "NestJS",
+    "Core Java",
+    "Hibernate",
+    "REST API Design",
+    "MySQL",
+    "PostgreSQL",
+    "MongoDB",
+    "SQL",
+    "HTML5",
+    "CSS3",
+    "SCSS",
+    "Tailwind CSS",
+    "Angular Material",
+    "RxJS",
+    "Docker",
+    "Azure DevOps",
+    "Git",
+    "Web Performance Optimization",
+    "Software Architecture",
+  ],
+  knowsLanguage: ["English", "Hindi", "Gujarati"],
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Prince Bavishi — Full Stack Engineer",
+  url: site.url,
+  inLanguage: "en-IN",
+  author: { "@type": "Person", name: "Prince Bavishi" },
+};
+
+const profilePageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  mainEntity: { "@type": "Person", name: "Prince Bavishi" },
+  url: canonicalURL,
+  dateModified: new Date().toISOString().split("T")[0],
+};
+---
+
+<!doctype html>
+<html lang="en-IN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Prince Bavishi" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="theme-color" content="#fefae0" />
+
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Geo -->
+    <meta name="geo.region" content="IN-GJ" />
+    <meta name="geo.placename" content="Rajkot, Gujarat, India" />
+    <meta name="ICBM" content="22.3039, 70.8022" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image:secure_url" content={ogImageURL} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Prince Bavishi — Full Stack Engineer" />
+    <meta property="og:site_name" content="Prince Bavishi" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="profile:first_name" content="Prince" />
+    <meta property="profile:last_name" content="Bavishi" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+    <meta name="twitter:image:alt" content="Prince Bavishi — Full Stack Engineer" />
+    <meta name="twitter:creator" content="@PrinceBavishi10" />
+    <meta name="twitter:site" content="@PrinceBavishi10" />
+
+    <!-- Icons and manifest -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+ href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..600;1,400..500&family=Inter:wght@300..600&family=Source+Code+Pro:wght@400;500&display=swap"
+ rel="stylesheet"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(profilePageSchema)} />
+  </head>
+
+  <body class="paper-grain">
+    <a
+ href="#main"
+ class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-ink focus:px-4 focus:py-2 focus:text-paper"
+    >
+      Skip to content
+    </a>
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,10 @@
+# https://princebavishi.dev/robots.txt
+
+User-agent: *
+Allow: /
+
+# No crawl-delay — the site is a single static page.
+
+# Block nothing: everything here is meant to be indexed.
+
+Sitemap: https://princebavishi.dev/sitemap-index.xml

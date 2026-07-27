@@ -1,0 +1,124 @@
+---
+import { site, nav } from "../data/site";
+import Icon from "./Icon.astro";
+---
+
+<header
+ id="site-header"
+ class="fixed inset-x-0 top-0 z-50 border-b border-transparent transition-colors duration-200"
+>
+  <div class="wrap">
+    <div class="flex h-14 items-center justify-between md:h-16">
+      <a href="#top" class="font-display text-lg leading-none text-black md:text-xl">
+        {site.name}
+      </a>
+
+      <nav aria-label="Primary" class="hidden items-center gap-7 md:flex">
+        {
+          nav.map((item) => (
+            <a href={item.href} class="nav-link text-sm" data-nav>
+              {item.label}
+            </a>
+          ))
+        }
+        <a href="#contact" class="btn btn-ghost btn-sm">
+          <Icon name="mail" size={14} />
+          Contact
+        </a>
+      </nav>
+
+      <button
+ id="nav-toggle"
+ type="button"
+ aria-expanded="false"
+ aria-controls="mobile-nav"
+ aria-label="Open menu"
+ class="icon-btn md:hidden"
+      >
+        <span data-icon="menu"><Icon name="menu" size={16} /></span>
+        <span data-icon="close" hidden><Icon name="close" size={16} /></span>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-nav" hidden class="border-t border-rule bg-paper md:hidden">
+    <nav aria-label="Mobile" class="wrap py-3">
+      <ul class="divide-y divide-rule">
+        {
+          nav.map((item) => (
+            <li>
+              <a
+ href={item.href}
+ class="flex items-center justify-between py-3 font-display text-lg text-black"
+                data-mobile-link
+              >
+                {item.label}
+                <Icon name="arrow-right" size={15} class="text-ink-faint" />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="meta mt-4">{site.availability}</p>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById("site-header");
+  const toggle = document.getElementById("nav-toggle");
+  const panel = document.getElementById("mobile-nav");
+  const menuIcon = document.querySelector<HTMLElement>('[data-icon="menu"]');
+  const closeIcon = document.querySelector<HTMLElement>('[data-icon="close"]');
+
+  const onScroll = () => {
+    if (!header) return;
+    const scrolled = window.scrollY > 24;
+    header.classList.toggle("bg-paper/90", scrolled);
+    header.classList.toggle("backdrop-blur-sm", scrolled);
+    header.classList.toggle("border-rule", scrolled);
+    header.classList.toggle("border-transparent", !scrolled);
+  };
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  const setOpen = (open: boolean) => {
+    if (!panel || !toggle) return;
+    panel.hidden = !open;
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    if (menuIcon) menuIcon.hidden = open;
+    if (closeIcon) closeIcon.hidden = !open;
+  };
+
+  toggle?.addEventListener("click", () => setOpen(panel?.hidden ?? false));
+  document
+    .querySelectorAll("[data-mobile-link]")
+    .forEach((link) => link.addEventListener("click", () => setOpen(false)));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") setOpen(false);
+  });
+
+  const links = Array.from(document.querySelectorAll<HTMLAnchorElement>("[data-nav]"));
+  const sections = links
+    .map((link) => document.querySelector(link.getAttribute("href") ?? ""))
+    .filter((section): section is Element => Boolean(section));
+
+  if (sections.length && "IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          links.forEach((link) =>
+            link.setAttribute(
+              "aria-current",
+              link.getAttribute("href") === `#${entry.target.id}` ? "true" : "false",
+            ),
+          );
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px" },
+    );
+    sections.forEach((section) => observer.observe(section));
+  }
+</script>

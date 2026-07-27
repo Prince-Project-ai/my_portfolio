@@ -1,0 +1,62 @@
+---
+import { stack } from "../data/site";
+
+const coreCount = stack.reduce(
+  (total, group) => total + group.items.filter((item) => item.core).length,
+  0,
+);
+---
+
+<section id="stack" class="rule-t section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p class="eyebrow">03 — Stack</p>
+          <h2 class="mt-3 text-headline">What I work with</h2>
+          <p class="measure mt-3 text-ink-soft">
+            Grouped by layer, and marked by how often I actually reach for it.
+          </p>
+        </div>
+
+        <!-- Legend explains the two pill states -->
+        <dl class="flex flex-wrap items-center gap-x-5 gap-y-2">
+          <div class="flex items-center gap-2">
+            <dt><span aria-hidden="true" class="pill pill-core !px-2 !py-0">&nbsp;</span></dt>
+            <dd class="tag">Daily — {coreCount}</dd>
+          </div>
+          <div class="flex items-center gap-2">
+            <dt><span aria-hidden="true" class="pill !px-2 !py-0">&nbsp;</span></dt>
+            <dd class="tag">Familiar</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+
+    <!-- One row per layer: label rail left, pills flowing full width right.
+         Rows keep every group the same width, so nothing is left ragged. -->
+    <dl class="border-t border-rule">
+      {
+        stack.map((group) => (
+          <div class="grid gap-x-8 gap-y-3 border-b border-rule py-6 md:grid-cols-[11rem_1fr]">
+            <dt>
+              <div class="flex items-baseline gap-2.5">
+                <span class="font-display text-lg text-moss">{group.index}</span>
+                <h3 class="font-display text-title">{group.group}</h3>
+              </div>
+              <p class="meta mt-1 md:mt-1.5">{group.note}</p>
+            </dt>
+
+            <dd>
+              <ul class="flex flex-wrap gap-1.5">
+                {group.items.map((item) => (
+                  <li class:list={["pill", item.core && "pill-core"]}>{item.name}</li>
+                ))}
+              </ul>
+            </dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>

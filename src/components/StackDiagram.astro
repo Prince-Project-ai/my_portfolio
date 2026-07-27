@@ -1,0 +1,330 @@
+---
+/* Interactive isometric drawing of the stack.
+   Four extruded plates, top to bottom. Hover, click or keyboard-select a
+   plate to reveal what sits in that layer. All geometry is computed from
+   the constants below so the plates stay parallel and the leader lines
+   land exactly on each mid-point. */
+
+const cx = 150;
+const halfW = 110;
+const halfH = 26;
+const step = 70;
+const depth = 7;
+
+const layers = [
+  {
+    label: "Interface",
+    caption: "What people see",
+    items: ["Angular", "React", "TypeScript", "Angular Material", "SCSS"],
+  },
+  {
+    label: "State",
+    caption: "What it remembers",
+    items: ["RxJS", "Signals", "Context API"],
+  },
+  {
+    label: "Service",
+    caption: "What does the work",
+    items: ["Node.js", "Express", "NestJS", "Core Java", "REST APIs"],
+  },
+  {
+    label: "Data",
+    caption: "Where it rests",
+    items: ["MySQL", "PostgreSQL", "MongoDB"],
+  },
+];
+
+const plates = layers.map((layer, i) => {
+  const top = 24 + i * step;
+  const mid = top + halfH;
+  const bottom = top + halfH * 2;
+
+  const point = (x: number, y: number) => `${x},${y}`;
+
+  return {
+    ...layer,
+    index: i,
+    top,
+    mid,
+    bottom,
+    /* Top face */
+    face: [
+      point(cx, top),
+      point(cx + halfW, mid),
+      point(cx, bottom),
+      point(cx - halfW, mid),
+    ].join(" "),
+    /* Extruded sides, giving each plate thickness */
+    sideLeft: [
+      point(cx - halfW, mid),
+      point(cx, bottom),
+      point(cx, bottom + depth),
+      point(cx - halfW, mid + depth),
+    ].join(" "),
+    sideRight: [
+      point(cx + halfW, mid),
+      point(cx, bottom),
+      point(cx, bottom + depth),
+      point(cx + halfW, mid + depth),
+    ].join(" "),
+    /* Component nodes sitting on the face */
+    nodes: [
+      { x: cx - 42, y: mid - 9 },
+      { x: cx + 42, y: mid - 9 },
+      { x: cx - 42, y: mid + 9 },
+      { x: cx + 42, y: mid + 9 },
+      { x: cx, y: mid },
+    ],
+    isLast: i === layers.length - 1,
+  };
+});
+
+const svgHeight = plates[plates.length - 1].bottom + depth + 16;
+---
+
+<div class="stack-figure" data-stack>
+  <svg
+    viewBox={`0 0 420 ${svgHeight}`}
+ fill="none"
+ class="w-full select-none"
+ role="group"
+ aria-labelledby="stack-title"
+  >
+    <title id="stack-title">
+      The four layers I work across. Select a layer to see the technologies in it.
+    </title>
+
+    <!-- Flow lines between plates, drawn behind everything -->
+    {
+      plates.map(
+        (plate) =>
+          !plate.isLast && (
+            <g class="flow" stroke-width="1" stroke-dasharray="3 4">
+              <line x1={cx - halfW} y1={plate.mid + depth} x2={cx - halfW} y2={plate.mid + step} />
+              <line x1={cx + halfW} y1={plate.mid + depth} x2={cx + halfW} y2={plate.mid + step} />
+              <line x1={cx} y1={plate.bottom + depth} x2={cx} y2={plate.top + step} />
+            </g>
+          ),
+      )
+    }
+
+    <!-- Plates -->
+    {
+      plates.map((plate) => (
+        <g
+ class="layer"
+ data-layer={plate.index}
+ role="button"
+ tabindex="0"
+ aria-pressed={plate.index === 0 ? "true" : "false"}
+ aria-label={`${plate.label} layer: ${plate.items.join(", ")}`}
+        >
+          {/* Generous invisible hit area so the whole band is clickable */}
+          <rect
+ class="hit"
+ x={cx - halfW - 8}
+ y={plate.top - 6}
+ width={halfW * 2 + 16 + 130}
+ height={halfH * 2 + depth + 12}
+          />
+
+          <polygon class="side" points={plate.sideLeft} />
+          <polygon class="side" points={plate.sideRight} />
+          <polygon class="face" points={plate.face} />
+
+          {plate.nodes.map((node) => (
+            <circle class="node" cx={node.x} cy={node.y} r="2.5" />
+          ))}
+
+          <circle class="pin" cx={cx - halfW} cy={plate.mid} r="3" />
+          <circle class="pin" cx={cx + halfW} cy={plate.mid} r="3" />
+
+          <line
+ class="leader"
+            x1={cx + halfW + 6}
+            y1={plate.mid}
+            x2={cx + halfW + 24}
+            y2={plate.mid}
+ stroke-width="1"
+          />
+
+          <text class="label" x={cx + halfW + 32} y={plate.mid - 3} font-size="10">
+            {plate.label.toUpperCase()}
+          </text>
+          <text class="caption" x={cx + halfW + 32} y={plate.mid + 9} font-size="8.5">
+            {plate.caption}
+          </text>
+        </g>
+      ))
+    }
+  </svg>
+
+  <!-- Detail panel. Every layer is rendered, only one is shown. -->
+  <div class="mt-5 border-t border-rule pt-4" aria-live="polite">
+    {
+      layers.map((layer, i) => (
+        <div data-detail={i} hidden={i !== 0}>
+          <div class="flex items-baseline gap-2">
+            <p class="tag !text-moss">{layer.label}</p>
+            <p class="meta">{layer.items.length} in use</p>
+          </div>
+          <ul class="mt-2 flex flex-wrap gap-1.5">
+            {layer.items.map((item) => (
+              <li class="pill">{item}</li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+    <p class="meta mt-3">Select a layer to explore</p>
+  </div>
+</div>
+
+<style>
+  .layer {
+    cursor: pointer;
+    outline: none;
+  }
+
+  .hit {
+    fill: transparent;
+  }
+
+  .face {
+    fill: var(--color-moss);
+    fill-opacity: 0.06;
+    stroke: var(--color-ink);
+    stroke-width: 1;
+    transition: fill-opacity 150ms ease, stroke-width 150ms ease;
+  }
+
+  .side {
+    fill: var(--color-ink);
+    fill-opacity: 0.1;
+    stroke: var(--color-ink);
+    stroke-width: 1;
+    transition: fill-opacity 150ms ease;
+  }
+
+  .node {
+    fill: var(--color-ink);
+    fill-opacity: 0.25;
+    transition: fill-opacity 150ms ease;
+  }
+
+  .pin {
+    fill: var(--color-moss);
+  }
+
+  .leader {
+    stroke: var(--color-rule-strong);
+  }
+
+  .label {
+    fill: var(--color-black);
+    font-family: var(--font-mono);
+    letter-spacing: 0.08em;
+  }
+
+  .caption {
+    fill: var(--color-ink-faint);
+    font-family: var(--font-sans);
+    transition: fill-opacity 150ms ease;
+  }
+
+  .flow {
+    stroke: var(--color-moss);
+    opacity: 0.4;
+  }
+
+  /* Selected or hovered */
+  .layer.is-active .face,
+  .layer:hover .face {
+    fill-opacity: 0.2;
+    stroke-width: 1.6;
+  }
+
+  .layer.is-active .side,
+  .layer:hover .side {
+    fill-opacity: 0.2;
+  }
+
+  .layer.is-active .node,
+  .layer:hover .node {
+    fill-opacity: 0.6;
+  }
+
+  .layer.is-active .pin {
+    r: 4;
+  }
+
+  /* Everything that is not selected recedes */
+  .stack-figure[data-has-selection] .layer:not(.is-active):not(:hover) {
+    opacity: 0.5;
+    transition: opacity 150ms ease;
+  }
+
+  .layer:focus-visible .face {
+    stroke: var(--color-moss);
+    stroke-width: 2;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .face,
+    .side,
+    .node,
+    .pin,
+    .layer {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const figure = document.querySelector<HTMLElement>("[data-stack]");
+  if (figure) {
+    const groups = Array.from(figure.querySelectorAll<SVGGElement>("[data-layer]"));
+    const details = Array.from(figure.querySelectorAll<HTMLElement>("[data-detail]"));
+
+    const select = (index: number) => {
+      groups.forEach((group) => {
+        const active = Number(group.dataset.layer) === index;
+        group.classList.toggle("is-active", active);
+        group.setAttribute("aria-pressed", String(active));
+      });
+      details.forEach((detail) => {
+        detail.hidden = Number(detail.dataset.detail) !== index;
+      });
+      figure.setAttribute("data-has-selection", "");
+    };
+
+    groups.forEach((group) => {
+      const index = Number(group.dataset.layer);
+
+      group.addEventListener("click", () => select(index));
+      group.addEventListener("mouseenter", () => select(index));
+
+      group.addEventListener("keydown", (event) => {
+        const key = event.key;
+
+        if (key === "Enter" || key === " ") {
+          event.preventDefault();
+          select(index);
+          return;
+        }
+
+        const step = key === "ArrowDown" || key === "ArrowRight" ? 1 : key === "ArrowUp" || key === "ArrowLeft" ? -1 : 0;
+        if (step === 0) return;
+
+        event.preventDefault();
+        const next = (index + step + groups.length) % groups.length;
+        groups[next].focus();
+        select(next);
+      });
+
+      group.addEventListener("focus", () => select(index));
+    });
+
+    select(0);
+  }
+</script>

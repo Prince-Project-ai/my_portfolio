@@ -1,0 +1,30 @@
+{
+  "name": "Prince Bavishi — Full Stack Engineer",
+  "short_name": "Prince Bavishi",
+  "description": "Portfolio of Prince Bavishi, a Full Stack Engineer in Rajkot, India working across Angular, TypeScript, Node.js and Core Java.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fefae0",
+  "theme_color": "#fefae0",
+  "lang": "en-IN",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

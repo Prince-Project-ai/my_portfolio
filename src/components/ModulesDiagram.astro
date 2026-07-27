@@ -1,0 +1,411 @@
+---
+/* Interactive drawing of the three Talent Recruit modules I look after.
+   Each panel is a wireframe of the real screen type — an offer document,
+   a settings list, a reports chart. Select one to read what I do there. */
+
+const x = 72;
+const w = 278;
+const h = 76;
+const gap = 22;
+const railX = 42;
+
+const modules = [
+  {
+    label: "OFFER",
+    tag: "module",
+    art: "doc",
+    work: [
+      "Built new offer states and flows from manager requirements",
+      "Removed redundant API request chains — roughly 40% faster",
+      "Integrated the Shine job platform for posting sync",
+    ],
+  },
+  {
+    label: "SETTINGS",
+    tag: "module",
+    art: "toggles",
+    work: [
+      "Extended existing configuration screens with new options",
+      "Shipped requested settings against product specs",
+      "Fixed defects surfacing from live customer use",
+    ],
+  },
+  {
+    label: "REPORTS",
+    tag: "module",
+    art: "chart",
+    work: [
+      "Added report views and filters requested by the team",
+      "Corrected data mismatches in existing report output",
+      "Tightened behaviour on large result sets",
+    ],
+  },
+];
+
+const panels = modules.map((module, i) => {
+  const top = 52 + i * (h + gap);
+  return { ...module, index: i, top, mid: top + h / 2 };
+});
+
+const svgHeight = panels[panels.length - 1].top + h + 12;
+const railEnd = panels[panels.length - 1].mid;
+---
+
+<figure class="modules-figure m-0" data-modules>
+  <svg
+    viewBox={`0 0 380 ${svgHeight}`}
+ fill="none"
+ class="w-full select-none"
+ role="group"
+ aria-labelledby="modules-title"
+  >
+    <title id="modules-title">
+      The three Talent Recruit modules I look after. Select one to read what I do
+      there.
+    </title>
+
+    <!-- Product root -->
+    <text class="root-label" x={railX} y="16" font-size="9.5">TALENT RECRUIT</text>
+    <line class="root-rule" x1={railX} y1="24" x2="350" y2="24" stroke-width="1" />
+
+    <!-- Rail connecting the product to its modules -->
+    <line
+ class="rail"
+      x1={railX}
+      y1="24"
+      x2={railX}
+      y2={railEnd}
+ stroke-width="1"
+ stroke-dasharray="3 4"
+    />
+
+    {
+      panels.map((panel) => (
+        <g
+ class="module"
+ data-module={panel.index}
+ role="button"
+ tabindex="0"
+ aria-pressed={panel.index === 0 ? "true" : "false"}
+ aria-label={`${panel.label} module: ${panel.work.join(". ")}`}
+        >
+          {/* Hit area */}
+          <rect class="hit" x={railX - 8} y={panel.top - 8} width={w + 40} height={h + 16} />
+
+          {/* Branch from rail into the panel */}
+          <line class="branch" x1={railX} y1={panel.mid} x2={x} y2={panel.mid} stroke-width="1" />
+          <circle class="pin" cx={railX} cy={panel.mid} r="3" />
+
+          {/* Panel body */}
+          <rect class="panel" x={x} y={panel.top} width={w} height={h} rx="3" />
+          <rect class="panel-head" x={x} y={panel.top} width={w} height="21" rx="3" />
+          <line
+ class="panel-rule"
+            x1={x}
+            y1={panel.top + 21}
+            x2={x + w}
+            y2={panel.top + 21}
+ stroke-width="1"
+          />
+          <text class="panel-title" x={x + 11} y={panel.top + 14.5} font-size="9">
+            {panel.label}
+          </text>
+          <text
+ class="panel-tag"
+ x={x + w - 11}
+ y={panel.top + 14.5}
+ font-size="7.5"
+ text-anchor="end"
+          >
+            {panel.tag}
+          </text>
+
+          {/* Skeleton content lines */}
+          <rect class="skeleton" x={x + 11} y={panel.top + 33} width="104" height="3.5" rx="1.75" />
+          <rect class="skeleton" x={x + 11} y={panel.top + 44} width="78" height="3.5" rx="1.75" />
+          <rect class="skeleton" x={x + 11} y={panel.top + 55} width="94" height="3.5" rx="1.75" />
+
+          {/* Per-module wireframe art */}
+          {panel.art === "doc" && (
+            <g>
+              <rect class="art-line" x={x + 186} y={panel.top + 30} width="40" height="36" rx="2" />
+              <rect class="art-fill" x={x + 192} y={panel.top + 37} width="24" height="2.5" rx="1.25" />
+              <rect class="art-fill" x={x + 192} y={panel.top + 44} width="28" height="2.5" rx="1.25" />
+              <rect class="art-fill" x={x + 192} y={panel.top + 51} width="18" height="2.5" rx="1.25" />
+              <circle class="art-dot" cx={x + 236} cy={panel.top + 62} r="5" />
+            </g>
+          )}
+
+          {panel.art === "toggles" &&
+            [0, 1, 2].map((row) => (
+              <g>
+                <rect
+ class="art-line"
+ x={x + 190}
+ y={panel.top + 32 + row * 13}
+ width="26"
+ height="9"
+ rx="4.5"
+                />
+                <circle
+ class="art-dot"
+ cx={row === 1 ? x + 194.5 : x + 211.5}
+ cy={panel.top + 36.5 + row * 13}
+ r="3"
+                />
+                <rect
+ class="art-fill"
+ x={x + 224}
+ y={panel.top + 35.5 + row * 13}
+ width="22"
+ height="2.5"
+ rx="1.25"
+                />
+              </g>
+            ))}
+
+          {panel.art === "chart" && (
+            <g>
+              <line
+ class="art-axis"
+                x1={x + 188}
+                y1={panel.top + 64}
+                x2={x + 252}
+                y2={panel.top + 64}
+ stroke-width="1"
+              />
+              {[14, 24, 19, 31].map((height, bar) => (
+                <rect
+ class="art-bar"
+ x={x + 192 + bar * 15}
+ y={panel.top + 64 - height}
+ width="8"
+ height={height}
+ rx="1"
+                />
+              ))}
+            </g>
+          )}
+        </g>
+      ))
+    }
+  </svg>
+
+  <!-- Detail panel. All three render; one is shown. -->
+  <figcaption class="mt-5 border-t border-rule pt-4" aria-live="polite">
+    {
+      modules.map((module, i) => (
+        <div data-module-detail={i} hidden={i !== 0}>
+          <p class="tag !text-moss">{module.label} — what I do</p>
+          <ul class="mt-2 space-y-1.5">
+            {module.work.map((item) => (
+              <li class="flex gap-2.5 text-sm leading-relaxed text-ink-soft">
+                <span aria-hidden="true" class="mt-2 h-px w-3 shrink-0 bg-moss" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+    <p class="meta mt-3">Select a module to explore</p>
+  </figcaption>
+</figure>
+
+<style>
+  .module {
+    cursor: pointer;
+    outline: none;
+  }
+
+  .hit {
+    fill: transparent;
+  }
+
+  .root-label,
+  .panel-title {
+    fill: var(--color-black);
+    font-family: var(--font-mono);
+    letter-spacing: 0.08em;
+  }
+
+  .panel-tag {
+    fill: var(--color-ink-faint);
+    font-family: var(--font-mono);
+    letter-spacing: 0.06em;
+  }
+
+  .root-rule {
+    stroke: var(--color-ink);
+  }
+
+  .rail,
+  .branch {
+    stroke: var(--color-moss);
+    opacity: 0.5;
+  }
+
+  .pin {
+    fill: var(--color-moss);
+  }
+
+  .panel {
+    fill: var(--color-paper);
+    stroke: var(--color-ink);
+    stroke-width: 1;
+    transition: stroke-width 150ms ease;
+  }
+
+  .panel-head {
+    fill: var(--color-moss);
+    fill-opacity: 0.08;
+    transition: fill-opacity 150ms ease;
+  }
+
+  .panel-rule {
+    stroke: var(--color-ink);
+    opacity: 0.35;
+  }
+
+  .skeleton,
+  .art-fill {
+    fill: var(--color-ink);
+    fill-opacity: 0.22;
+    transition: fill-opacity 150ms ease;
+  }
+
+  .art-line {
+    stroke: var(--color-ink);
+    stroke-width: 1;
+    opacity: 0.45;
+    transition: opacity 150ms ease;
+  }
+
+  .art-axis {
+    stroke: var(--color-ink);
+    opacity: 0.35;
+  }
+
+  .art-dot {
+    fill: var(--color-moss);
+    fill-opacity: 0.55;
+    transition: fill-opacity 150ms ease;
+  }
+
+  .art-bar {
+    fill: var(--color-moss);
+    fill-opacity: 0.35;
+    transition: fill-opacity 150ms ease;
+  }
+
+  /* Selected or hovered */
+  .module.is-active .panel,
+  .module:hover .panel {
+    stroke-width: 1.7;
+  }
+
+  .module.is-active .panel-head,
+  .module:hover .panel-head {
+    fill-opacity: 0.22;
+  }
+
+  .module.is-active .skeleton,
+  .module:hover .skeleton,
+  .module.is-active .art-fill,
+  .module:hover .art-fill {
+    fill-opacity: 0.4;
+  }
+
+  .module.is-active .art-line,
+  .module:hover .art-line {
+    opacity: 0.7;
+  }
+
+  .module.is-active .art-dot,
+  .module:hover .art-dot,
+  .module.is-active .art-bar,
+  .module:hover .art-bar {
+    fill-opacity: 0.8;
+  }
+
+  .module.is-active .pin {
+    r: 4.5;
+  }
+
+  .modules-figure[data-has-selection] .module:not(.is-active):not(:hover) {
+    opacity: 0.45;
+    transition: opacity 150ms ease;
+  }
+
+  .module:focus-visible .panel {
+    stroke: var(--color-moss);
+    stroke-width: 2;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .panel,
+    .panel-head,
+    .skeleton,
+    .art-fill,
+    .art-line,
+    .art-dot,
+    .art-bar,
+    .pin,
+    .module {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const figure = document.querySelector<HTMLElement>("[data-modules]");
+  if (figure) {
+    const groups = Array.from(figure.querySelectorAll<SVGGElement>("[data-module]"));
+    const details = Array.from(figure.querySelectorAll<HTMLElement>("[data-module-detail]"));
+
+    const select = (index: number) => {
+      groups.forEach((group) => {
+        const active = Number(group.dataset.module) === index;
+        group.classList.toggle("is-active", active);
+        group.setAttribute("aria-pressed", String(active));
+      });
+      details.forEach((detail) => {
+        detail.hidden = Number(detail.dataset.moduleDetail) !== index;
+      });
+      figure.setAttribute("data-has-selection", "");
+    };
+
+    groups.forEach((group) => {
+      const index = Number(group.dataset.module);
+
+      group.addEventListener("click", () => select(index));
+      group.addEventListener("mouseenter", () => select(index));
+      group.addEventListener("focus", () => select(index));
+
+      group.addEventListener("keydown", (event) => {
+        const key = event.key;
+
+        if (key === "Enter" || key === " ") {
+          event.preventDefault();
+          select(index);
+          return;
+        }
+
+        const step =
+          key === "ArrowDown" || key === "ArrowRight"
+            ? 1
+            : key === "ArrowUp" || key === "ArrowLeft"
+              ? -1
+              : 0;
+        if (step === 0) return;
+
+        event.preventDefault();
+        const next = (index + step + groups.length) % groups.length;
+        groups[next].focus();
+        select(next);
+      });
+    });
+
+    select(0);
+  }
+</script>

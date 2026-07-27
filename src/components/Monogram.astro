@@ -1,0 +1,81 @@
+---
+/* Engraved seal monogram — a ticked ring around the initials.
+   Ticks are generated so the spacing stays exact. */
+
+interface Props {
+  size?: number;
+  class?: string;
+}
+
+const { size = 64, class: className = "" } = Astro.props;
+
+const c = 36;
+const ticks = Array.from({ length: 24 }, (_, i) => {
+  const angle = (i * 360) / 24;
+  const long = i % 6 === 0;
+  return { angle, inner: long ? 25 : 27, outer: 30 };
+});
+---
+
+<svg
+  viewBox="0 0 72 72"
+ width={size}
+ height={size}
+ fill="none"
+ class={`monogram ${className}`}
+ role="img"
+ aria-label="Prince Bavishi monogram"
+>
+  <!-- Outer and inner rings -->
+  <circle class="ring" cx={c} cy={c} r="31.25" stroke-width="1" />
+  <circle class="ring-inner" cx={c} cy={c} r="22.5" stroke-width="1" />
+
+  <!-- Ticks -->
+  {
+    ticks.map((tick) => (
+      <line
+ class="tick"
+        x1={c}
+        y1={c - tick.inner}
+        x2={c}
+        y2={c - tick.outer}
+ stroke-width="1"
+ transform={`rotate(${tick.angle} ${c} ${c})`}
+      />
+    ))
+  }
+
+  <!-- Initials -->
+  <text
+ class="initials"
+ x={c}
+ y={c}
+ text-anchor="middle"
+ dominant-baseline="central"
+ font-size="21"
+  >
+    PB
+  </text>
+</svg>
+
+<style>
+  .ring,
+  .ring-inner {
+    stroke: var(--color-ink);
+  }
+
+  .ring-inner {
+    opacity: 0.35;
+  }
+
+  .tick {
+    stroke: var(--color-moss);
+    opacity: 0.75;
+  }
+
+  .initials {
+    fill: var(--color-black);
+    font-family: var(--font-display);
+    letter-spacing: 0.02em;
+  }
+</style>

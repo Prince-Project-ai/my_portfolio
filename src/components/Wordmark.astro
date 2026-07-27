@@ -1,0 +1,71 @@
+---
+/* Oversized outlined signature closing the page.
+   textLength pins the width so the letterforms can never overflow the
+   viewBox regardless of how Playfair renders. Hovering inks the letters in. */
+
+import { site } from "../data/site";
+
+const width = 1000;
+const inset = 6;
+---
+
+<div class="wordmark">
+  <svg
+    viewBox={`0 0 ${width} 150`}
+ fill="none"
+ class="w-full"
+ role="img"
+ aria-label={site.name}
+  >
+    <!-- Outlined name -->
+    <text
+ class="letters"
+ x={inset}
+ y="104"
+ font-size="128"
+      textLength={width - inset * 2}
+      lengthAdjust="spacingAndGlyphs"
+    >
+      {site.name}
+    </text>
+
+    <!-- Baseline rule with terminal nodes -->
+    <line class="baseline" x1={inset} y1="126" x2={width - inset} y2="126" stroke-width="1" />
+    <circle class="node" cx={inset} cy="126" r="3" />
+    <circle class="node" cx={width - inset} cy="126" r="3" />
+
+    <!-- Registration marks under the baseline -->
+    {
+      Array.from({ length: 40 }, (_, i) => {
+        const step = (width - inset * 2) / 39;
+        const x = inset + i * step;
+        return <line class="grad" x1={x} y1="132" x2={x} y2={i % 5 === 0 ? 141 : 137} stroke-width="1" />;
+      })
+    }
+  </svg>
+</div>
+
+<style>
+  .letters {
+    fill: var(--color-moss);
+    fill-opacity: 0.1;
+    stroke: var(--color-ink);
+    stroke-width: 1;
+    font-family: var(--font-display);
+    font-weight: 500;
+  }
+
+  .baseline {
+    stroke: var(--color-ink);
+    opacity: 0.4;
+  }
+
+  .node {
+    fill: var(--color-moss);
+  }
+
+  .grad {
+    stroke: var(--color-ink);
+    opacity: 0.28;
+  }
+</style>
