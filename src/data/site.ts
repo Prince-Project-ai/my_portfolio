@@ -5,11 +5,11 @@ export const site = {
   email: "bavishiprince90@gmail.com",
   phone: "+91 90160 91157",
   phoneHref: "tel:+919016091157",
-  url: "https://princebavishi.dev",
+  url: "https://prince-bavishi.netlify.app",
   /* Drop the PDF at public/prince-bavishi-resume.pdf to activate this. */
   resume: "/Prince Bavishi CV.pdf",
   github: "https://github.com/PrinceDev90",
-  linkedin: "https://www.linkedin.com/in/prince-bavishi-58638b250",
+  linkedin: "https://www.linkedin.com/in/prince-bavishi-10x/",
   twitter: "https://x.com/PrinceBavishi10",
   availability: "Open to full stack engineering roles",
 };

@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://princebavishi.dev',
+  site: 'https://prince-bavishi.netlify.app',
   integrations: [
     sitemap({
       changefreq: 'monthly',
