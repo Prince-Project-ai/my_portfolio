@@ -1,5 +1,5 @@
 ---
-import { site, education } from "../data/site";
+import { site, education, certifications, hobbies } from "../data/site";
 import Icon from "./Icon.astro";
 ---
 
@@ -55,8 +55,28 @@ import Icon from "./Icon.astro";
         </div>
 
         <div>
+          <p class="tag">Certifications</p>
+          <ul class="mt-2 space-y-3">
+            {
+              certifications.map((cert) => (
+                <li>
+                  <p class="meta">{cert.year}</p>
+                  <p class="mt-0.5 text-sm leading-snug">{cert.name}</p>
+                  <p class="text-sm text-ink-faint">{cert.issuer}</p>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div>
           <p class="tag">Languages</p>
           <p class="mt-1.5 text-sm text-ink-soft">Gujarati (native) · Hindi · English</p>
+        </div>
+
+        <div>
+          <p class="tag">Hobbies</p>
+          <p class="mt-1.5 text-sm text-ink-soft">{hobbies.join(" · ")}</p>
         </div>
 
         <div>

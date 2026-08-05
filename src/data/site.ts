@@ -56,6 +56,35 @@ export const experience = [
     ],
     stack: ["Angular", "TypeScript", "Angular Material", "RxJS", "REST APIs", "Azure DevOps"],
   },
+  {
+    index: "02",
+    role: "Hardware & Software Support Assistant",
+    focus: "IT Support · Networking",
+    company: "College Computer Lab / Hardware Workshop",
+    location: "Amreli, Gujarat",
+    period: "2 Years",
+    summary:
+      "Provided comprehensive IT support for the college lab, including hardware repair, network maintenance, and OS administration for student systems.",
+    points: [
+      {
+        label: "Hardware Support",
+        text: "Diagnosed faults, replaced components, and performed routine maintenance on lab computers to minimize downtime.",
+      },
+      {
+        label: "Networking",
+        text: "Maintained localized network switches and LAN cabling, and rapidly addressed connectivity faults.",
+      },
+      {
+        label: "System Admin",
+        text: "Installed and configured Windows and Linux operating systems across lab systems, ensuring consistent environments.",
+      },
+      {
+        label: "Asset Tracking",
+        text: "Maintained records of equipment condition and usage to support informal IT asset tracking.",
+      },
+    ],
+    stack: ["Hardware Repair", "Networking", "Linux", "Windows", "Asset Management"],
+  },
 ];
 
 export type StackItem = { name: string; core?: boolean };
@@ -126,6 +155,21 @@ export const stack: {
       { name: "Docker" },
     ],
   },
+  {
+    index: "05",
+    group: "IT Support",
+    note: "Systems & operations",
+    items: [
+      { name: "Hardware Troubleshooting", core: true },
+      { name: "Linux Administration", core: true },
+      { name: "Windows & macOS", core: true },
+      { name: "Network Configuration", core: true },
+      { name: "SAP ERP" },
+      { name: "Tally ERP" },
+      { name: "Software Deployment" },
+      { name: "Asset Management" },
+    ],
+  },
 ];
 
 export const education = [
@@ -140,6 +184,13 @@ export const education = [
     period: "2022 — 2025",
   },
 ];
+
+export const certifications = [
+  { name: "CCC", issuer: "NIELIT", year: "2022" },
+  { name: "Tally ERP", issuer: "Skill Education Hub", year: "2022" },
+];
+
+export const hobbies = ["Playing Chess", "Coding", "Cricket"];
 
 export type Project = {
   slug: string;
