@@ -178,22 +178,61 @@ const profilePageSchema = {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
- href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..600;1,400..500&family=Inter:wght@300..600&family=Source+Code+Pro:wght@400;500&display=swap"
- rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
     />
 
     <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(profilePageSchema)} />
+
+    <!-- Theme Inline Script to prevent FOUC -->
+    <script is:inline>
+      const getTheme = () => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        return 'system';
+      };
+      const theme = getTheme();
+      if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
   </head>
 
-  <body class="paper-grain">
+  <body>
     <a
- href="#main"
- class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-ink focus:px-4 focus:py-2 focus:text-paper"
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-ink focus:px-4 focus:py-2 focus:text-paper"
     >
       Skip to content
     </a>
     <slot />
+
+    <script>
+      // Minimal, performant scroll reveal animation
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("revealed");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { root: null, rootMargin: "0px 0px -50px 0px", threshold: 0 }
+      );
+
+      // Run initially
+      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+      // Handle Astro view transitions if they ever get added
+      document.addEventListener("astro:page-load", () => {
+        document.querySelectorAll(".reveal:not(.revealed)").forEach((el) => observer.observe(el));
+      });
+    </script>
   </body>
 </html>

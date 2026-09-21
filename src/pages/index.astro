@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import Hero from "../components/Hero.astro";
+import Marquee from "../components/Marquee.astro";
 import Work from "../components/Work.astro";
 import Experience from "../components/Experience.astro";
 import Stack from "../components/Stack.astro";
@@ -12,12 +13,18 @@ import SiteFooter from "../components/SiteFooter.astro";
 
 <Layout>
   <SiteHeader />
-  <main id="main">
+  <main id="main" class="wrap pt-[4.5rem] md:pt-[4rem]">
     <Hero />
+    <Marquee />
+    <hr class="border-t border-dashed border-rule-strong m-0" />
     <Work />
+    <hr class="border-t border-dashed border-rule-strong m-0" />
     <Experience />
+    <hr class="border-t border-dashed border-rule-strong m-0" />
     <Stack />
+    <hr class="border-t border-dashed border-rule-strong m-0" />
     <About />
+    <hr class="border-t border-dashed border-rule-strong m-0" />
     <Contact />
   </main>
   <SiteFooter />

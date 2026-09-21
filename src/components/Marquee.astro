@@ -1,0 +1,39 @@
+---
+// Marquee.astro
+
+const services = [
+  "Web Development",
+  "UI/UX Design",
+  "Custom Software",
+  "AI Automation",
+  "SEO Optimization"
+];
+---
+
+<div class="group flex overflow-hidden border-t border-dashed border-rule-strong bg-rule-faint/30 py-3">
+  <div class="animate-marquee flex min-w-full shrink-0 items-center justify-around gap-8 pr-8 group-hover:![animation-play-state:paused]">
+    {
+      services.map((service) => (
+        <>
+          <span class="font-mono text-xs uppercase tracking-widest text-ink-soft whitespace-nowrap">
+            {service}
+          </span>
+          <span class="text-moss text-[0.65rem]">✦</span>
+        </>
+      ))
+    }
+  </div>
+  
+  <div aria-hidden="true" class="animate-marquee flex min-w-full shrink-0 items-center justify-around gap-8 pr-8 group-hover:![animation-play-state:paused]">
+    {
+      services.map((service) => (
+        <>
+          <span class="font-mono text-xs uppercase tracking-widest text-ink-soft whitespace-nowrap">
+            {service}
+          </span>
+          <span class="text-moss text-[0.65rem]">✦</span>
+        </>
+      ))
+    }
+  </div>
+</div>

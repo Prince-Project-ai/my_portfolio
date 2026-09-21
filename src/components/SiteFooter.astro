@@ -13,9 +13,9 @@ const elsewhere = [
 ];
 ---
 
-<footer class="rule-t">
-  <div class="wrap">
-    <!-- Columns: identity, index, elsewhere, direct -->
+<footer class="wrap">
+  <hr class="border-t border-dashed border-rule-strong m-0" />
+  <div class="pad-inline">
     <div class="grid-12 gap-y-10 py-12">
       <!-- Identity -->
       <div class="col-span-12 md:col-span-4">
@@ -32,10 +32,10 @@ const elsewhere = [
         </p>
 
         <a
- href={site.resume}
+          href={site.resume}
           download
- class="btn btn-ghost btn-sm mt-5"
- aria-label="Download my resume as a PDF"
+          class="btn btn-ghost btn-sm mt-5"
+          aria-label="Download my resume as a PDF"
         >
           <Icon name="download" size={14} />
           Download resume
@@ -50,8 +50,8 @@ const elsewhere = [
             nav.map((item) => (
               <li>
                 <a
- href={item.href}
- class="text-sm text-ink-soft transition-colors duration-200 hover:text-moss"
+                  href={item.href}
+                  class="text-sm text-ink-soft transition-colors duration-200 hover:text-moss"
                 >
                   {item.label}
                 </a>
@@ -69,10 +69,10 @@ const elsewhere = [
             elsewhere.map((link) => (
               <li>
                 <a
- href={link.href}
- target="_blank"
- rel="noopener noreferrer"
- class="flex items-center gap-2 text-sm text-ink-soft transition-colors duration-200 hover:text-moss"
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-center gap-2 text-sm text-ink-soft transition-colors duration-200 hover:text-moss"
                 >
                   <Icon name={link.icon} size={13} />
                   {link.label}
@@ -98,21 +98,19 @@ const elsewhere = [
         </ul>
       </div>
     </div>
+  </div>
 
-    <!-- Oversized signature -->
-    <!-- <div class="border-t border-rule pt-10">
-      <Wordmark />
-    </div> -->
+  <!-- Full-width dashed line above colophon -->
+  <hr class="border-t border-dashed border-rule-strong m-0" />
 
+  <div class="pad-inline">
     <!-- Colophon -->
-    <div
- class="flex flex-col gap-3 border-t border-rule py-6 sm:flex-row sm:items-center sm:justify-between"
-    >
+    <div class="flex flex-col gap-3 py-6 sm:flex-row sm:items-center sm:justify-between">
       <p class="meta">© {year} {site.name}. All rights reserved.</p>
       <div class="flex items-center gap-6">
         <a
- href="#top"
- class="flex items-center gap-1.5 text-sm text-ink-soft transition-colors duration-200 hover:text-moss"
+          href="#top"
+          class="flex items-center gap-1.5 text-sm text-ink-soft transition-colors duration-200 hover:text-moss"
         >
           Back to top
           <Icon name="arrow-up" size={13} />
@@ -120,4 +118,7 @@ const elsewhere = [
       </div>
     </div>
   </div>
+
+  <!-- Closing dashed line at the very bottom of the wireframe box -->
+  <hr class="border-t border-dashed border-rule-strong m-0" />
 </footer>

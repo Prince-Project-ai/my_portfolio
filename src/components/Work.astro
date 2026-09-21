@@ -10,16 +10,16 @@ const ordered = [
 ---
 
 <section id="work" class="section">
-  <div class="wrap">
+  <div>
     <div class="section-head">
       <p class="eyebrow">01 — Work</p>
       <h2 class="mt-3 text-headline">Selected work</h2>
-      <p class="measure mt-3 text-ink-soft">
+      <p class="measure text-ink-soft">
         A company product I work on daily, and two I built on my own.
       </p>
     </div>
 
-    <ol class="border-t border-rule">
+    <ol class="grid grid-cols-1 gap-6 md:grid-cols-2 mt-6">
       {ordered.map((project) => <ProjectItem project={project} />)}
     </ol>
 

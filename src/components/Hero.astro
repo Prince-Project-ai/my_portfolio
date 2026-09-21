@@ -4,42 +4,41 @@ import Icon from "./Icon.astro";
 import StackDiagram from "./StackDiagram.astro";
 ---
 
-<section id="top" class="pt-24">
-  <div class="wrap">
-    <div class="grid-12 items-center">
+<section id="top" class="pt-8 pb-10 md:pt-12 md:pb-5">
+  <div>
+    <div class="flex flex-col items-center text-center">
       <!-- Copy -->
-      <div class="col-span-12 lg:col-span-7">
-        <div class="flex items-center gap-3">
-          <span aria-hidden="true" class="h-1.5 w-1.5 shrink-0 rounded-full bg-moss"></span>
+      <div class="max-w-3xl">
+        <div class="flex items-center justify-center gap-2">
+          <span
+            aria-hidden="true"
+            class="h-1.5 w-1.5 shrink-0 rounded-full bg-moss"></span>
           <p class="eyebrow">Software Engineer @ Softrefine Technology</p>
         </div>
 
-        <h1 class="mt-6 text-display">
-          Hi, I'm
-          <span class="block italic text-moss">{site.name}</span>
+        <h1 class="mt-4 text-display">
+          Hi, I'm <span class="italic text-moss">{site.name}</span>
         </h1>
 
-        <p class="mt-4 font-display text-title">
-          Full Stack Engineer
-        </p>
+        <p class="mt-2 font-display text-title">Full Stack Engineer</p>
 
-        <p class="measure mt-5 text-lg leading-relaxed text-ink-soft">
+        <p class="measure mx-auto mt-4 text-base leading-relaxed text-ink-soft">
           I build web applications end to end — reusable Angular and React interfaces
-          on the front, REST APIs and data models behind them. Right now I'm at
-          Softrefine Technology, working across three modules of an AI-assisted
-          applicant tracking system, where I made one of them roughly 40% faster.
+          on the front, REST APIs and data models behind them. Right now I'm a freelance developer 
+          helping businesses build custom solutions like Factory OS, and working on an 
+          AI-Powered Enterprise Applicant Tracking System (ATS) at Softrefine Technology.
         </p>
 
-        <div class="mt-8 flex flex-wrap items-center gap-3">
+        <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto">
           <a href="#work" class="btn btn-solid">
             See selected work
             <Icon name="arrow-down" size={15} />
           </a>
           <a
- href={site.resume}
+            href={site.resume}
             download
- class="btn btn-ghost"
- aria-label="Download my resume as a PDF"
+            class="btn btn-ghost"
+            aria-label="Download my resume as a PDF"
           >
             <Icon name="download" size={15} />
             Download resume
@@ -50,50 +49,51 @@ import StackDiagram from "./StackDiagram.astro";
           </a>
         </div>
       </div>
-
-      <!-- Illustration -->
-      <div class="col-span-12 mt-12 lg:col-span-5 lg:mt-0">
-        <StackDiagram />
-      </div>
     </div>
 
     <!-- Facts -->
-    <div class="mt-12 flex flex-wrap items-end gap-x-10 gap-y-4 border-t border-rule pt-6">
-      <dl class="flex flex-wrap items-end gap-x-10 gap-y-4">
+    <div
+      class="bleed mt-10 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 border-t border-dashed border-rule-strong pt-5"
+    >
+      <dl class="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
         <div>
           <dt class="tag">Experience</dt>
-          <dd class="mt-1 text-sm">1+ year</dd>
+          <dd class="mt-0 text-sm">1+ year</dd>
         </div>
         <div>
           <dt class="tag">Status</dt>
-          <dd class="mt-1 text-sm">{site.availability}</dd>
+          <dd class="mt-0 text-sm">{site.availability}</dd>
         </div>
       </dl>
       <ul class="ml-auto flex list-none gap-2">
         <li>
           <a
- href={site.github}
- target="_blank"
- rel="noopener noreferrer"
- class="icon-btn"
- aria-label="GitHub profile"
+            href={site.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="icon-btn"
+            aria-label="GitHub profile"
           >
             <Icon name="github" size={15} />
           </a>
         </li>
         <li>
           <a
- href={site.linkedin}
- target="_blank"
- rel="noopener noreferrer"
- class="icon-btn"
- aria-label="LinkedIn profile"
+            href={site.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="icon-btn"
+            aria-label="LinkedIn profile"
           >
             <Icon name="linkedin" size={15} />
           </a>
         </li>
         <li>
-          <a href={`mailto:${site.email}`} class="icon-btn" aria-label="Send an email">
+          <a
+            href={`mailto:${site.email}`}
+            class="icon-btn"
+            aria-label="Send an email"
+          >
             <Icon name="mail" size={15} />
           </a>
         </li>

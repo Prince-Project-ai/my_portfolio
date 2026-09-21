@@ -4,36 +4,43 @@ import Icon from "./Icon.astro";
 ---
 
 <header
- id="site-header"
- class="fixed inset-x-0 top-0 z-50 border-b border-transparent transition-colors duration-200"
+  id="site-header"
+  class="fixed inset-x-0 top-0 z-50 transition-all duration-200"
 >
-  <div class="wrap">
-    <div class="flex h-14 items-center justify-between md:h-16">
+  <div class="wrap border-b border-dashed border-rule-strong">
+    <div class="pad-inline flex h-[4rem] items-center justify-between">
       <a href="#top" class="font-display text-lg leading-none text-black md:text-xl">
         {site.name}
       </a>
 
-      <nav aria-label="Primary" class="hidden items-center gap-7 md:flex">
+      <nav aria-label="Primary" class="hidden items-center gap-4 lg:gap-7 md:flex">
         {
           nav.map((item) => (
-            <a href={item.href} class="nav-link text-sm" data-nav>
+            <a href={item.href} class="nav-link text-sm" data-nav data-text={item.label}>
               {item.label}
             </a>
           ))
         }
+
         <a href="#contact" class="btn btn-ghost btn-sm">
           <Icon name="mail" size={14} />
           Contact
         </a>
+
+        <button id="theme-toggle-desktop" type="button" class="icon-btn theme-toggle" aria-label="Toggle theme" title="Theme: System">
+          <span data-theme-icon="system"><Icon name="monitor" size={15} /></span>
+          <span data-theme-icon="light" hidden><Icon name="sun" size={15} /></span>
+          <span data-theme-icon="dark" hidden><Icon name="moon" size={15} /></span>
+        </button>
       </nav>
 
       <button
- id="nav-toggle"
- type="button"
- aria-expanded="false"
- aria-controls="mobile-nav"
- aria-label="Open menu"
- class="icon-btn md:hidden"
+        id="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        aria-label="Open menu"
+        class="icon-btn md:hidden"
       >
         <span data-icon="menu"><Icon name="menu" size={16} /></span>
         <span data-icon="close" hidden><Icon name="close" size={16} /></span>
@@ -41,15 +48,15 @@ import Icon from "./Icon.astro";
     </div>
   </div>
 
-  <div id="mobile-nav" hidden class="border-t border-rule bg-paper md:hidden">
-    <nav aria-label="Mobile" class="wrap py-3">
-      <ul class="divide-y divide-rule">
+  <div id="mobile-nav" hidden class="border-t border-dashed border-rule-strong bg-paper md:hidden absolute w-full h-[calc(100vh-4rem)] overflow-y-auto">
+    <nav aria-label="Mobile" class="wrap pad-inline py-3 pb-24">
+      <ul class="divide-y divide-dashed divide-rule-strong">
         {
           nav.map((item) => (
             <li>
               <a
- href={item.href}
- class="flex items-center justify-between py-3 font-display text-lg text-black"
+                href={item.href}
+                class="flex items-center justify-between py-3 font-display text-lg text-black"
                 data-mobile-link
               >
                 {item.label}
@@ -58,6 +65,16 @@ import Icon from "./Icon.astro";
             </li>
           ))
         }
+        <li>
+          <div class="flex items-center justify-between py-3">
+            <span class="font-display text-lg text-black">Theme</span>
+            <button id="theme-toggle-mobile" type="button" class="icon-btn theme-toggle" aria-label="Toggle theme" title="Theme: System">
+              <span data-theme-icon="system"><Icon name="monitor" size={15} /></span>
+              <span data-theme-icon="light" hidden><Icon name="sun" size={15} /></span>
+              <span data-theme-icon="dark" hidden><Icon name="moon" size={15} /></span>
+            </button>
+          </div>
+        </li>
       </ul>
       <p class="meta mt-4">{site.availability}</p>
     </nav>
@@ -75,9 +92,7 @@ import Icon from "./Icon.astro";
     if (!header) return;
     const scrolled = window.scrollY > 24;
     header.classList.toggle("bg-paper/90", scrolled);
-    header.classList.toggle("backdrop-blur-sm", scrolled);
-    header.classList.toggle("border-rule", scrolled);
-    header.classList.toggle("border-transparent", !scrolled);
+    header.classList.toggle("backdrop-blur-md", scrolled);
   };
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
@@ -121,4 +136,49 @@ import Icon from "./Icon.astro";
     );
     sections.forEach((section) => observer.observe(section));
   }
+
+  // Theme logic
+  const themeToggles = document.querySelectorAll('.theme-toggle');
+  const themes = ['system', 'light', 'dark'];
+
+  const applyTheme = (theme) => {
+    if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  };
+
+  const updateIcons = (theme) => {
+    themeToggles.forEach(btn => {
+      // @ts-ignore
+      btn.title = `Theme: ${theme.charAt(0).toUpperCase() + theme.slice(1)}`;
+      btn.querySelectorAll('[data-theme-icon]').forEach(icon => {
+        // @ts-ignore
+        icon.hidden = icon.getAttribute('data-theme-icon') !== theme;
+      });
+    });
+  };
+
+  const currentTheme = (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) || 'system';
+  updateIcons(currentTheme);
+
+  themeToggles.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const activeTheme = (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) || 'system';
+      const nextIndex = (themes.indexOf(activeTheme) + 1) % themes.length;
+      const newTheme = themes[nextIndex];
+      
+      localStorage.setItem('theme', newTheme);
+      applyTheme(newTheme);
+      updateIcons(newTheme);
+    });
+  });
+
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+    const activeTheme = (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) || 'system';
+    if (activeTheme === 'system') {
+      applyTheme('system');
+    }
+  });
 </script>

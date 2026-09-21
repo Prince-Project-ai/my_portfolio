@@ -1,17 +1,17 @@
 export const site = {
   name: "Prince Bavishi",
   role: "Full Stack Engineer",
-  location: "Rajkot, Gujarat, India",
+  location: "Ahmedabad, Gujarat, India",
   email: "bavishiprince90@gmail.com",
   phone: "+91 90160 91157",
   phoneHref: "tel:+919016091157",
   url: "https://prince-bavishi.netlify.app",
   /* Drop the PDF at public/prince-bavishi-resume.pdf to activate this. */
-  resume: "/Prince Bavishi CV.pdf",
+  resume: "/Prince_Bavishi_cv.pdf",
   github: "https://github.com/PrinceDev90",
   linkedin: "https://www.linkedin.com/in/prince-bavishi-10x/",
   twitter: "https://x.com/PrinceBavishi10",
-  availability: "Open to full stack engineering roles",
+  availability: "I'm really interested to meet you and discuss new projects!",
 };
 
 export const nav = [
@@ -25,66 +25,54 @@ export const nav = [
 export const experience = [
   {
     index: "01",
+    role: "Freelance Software Developer",
+    focus: "Custom Software Solutions",
+    company: "Self-Employed",
+    location: "Remote",
+    period: "Present",
+    summary:
+      "Right now I am freelance and helping businesses to provide digital solutions by custom software.",
+    points: [
+      {
+        label: "Current Project",
+        text: "Currently building Factory OS, a full-stack manufacturing operations platform covering the complete business lifecycle from CRM and quotations to dispatch.",
+      },
+      {
+        label: "Client Solutions",
+        text: "Delivering tailored digital solutions spanning frontend interfaces, backend APIs, and database architecture.",
+      },
+    ],
+    stack: ["Angular", "React", "Node.js", "Express.js", "PostgreSQL", "MongoDB"],
+  },
+  {
+    index: "02",
     role: "Software Developer",
     focus: "Angular · Full Stack",
     company: "Softrefine Technology Pvt. Ltd.",
     location: "Rajkot, India",
     period: "May 2025 — Present",
     summary:
-      "Talent Recruit is an established AI-assisted applicant tracking system used by hiring teams. I joined the product team after it was already in production, and now lead three of its modules day to day.",
+      "Develop and maintain a production-grade enterprise SaaS application using Angular, TypeScript, JavaScript, HTML5, and SCSS within an established architecture and complex business workflows.",
     points: [
       {
-        label: "What I lead",
-        text: "The Offer, Settings and Reports modules of an existing codebase — the platform and its core flows were already built when I joined.",
+        label: "Feature Ownership",
+        text: "Own frontend development tasks end-to-end, from understanding requirements and implementing UI/UX to building and integrating reusable components, connecting REST APIs, handling edge cases, debugging, testing, and delivering production-ready features.",
       },
       {
-        label: "New features",
-        text: "I build new features inside those modules against requirements from my manager and the product team, then take them through review and release.",
+        label: "Integration & Stability",
+        text: "Implement features and enhancements across multiple product modules by integrating REST APIs and working with shared components, services, and business logic while maintaining application stability.",
       },
       {
-        label: "Production issues",
-        text: "I investigate and fix live production issues, including defects QA didn't catch — working backwards from a user report to the root cause.",
+        label: "Debugging & QA",
+        text: "Investigate and resolve production and QA-reported defects by tracing issues across the UI, API responses, asynchronous flows, and business logic; perform functional, regression, edge-case, and API testing using Postman.",
       },
       {
-        label: "Performance",
-        text: "Traced redundant request chains in the Offer module and removed them, cutting network calls and improving response time by roughly 40%.",
-      },
-      {
-        label: "Integration",
-        text: "Integrated the Shine job platform API so postings and candidate inflow sync without manual handoff.",
+        label: "Agile Workflow",
+        text: "Work with Azure DevOps and Agile/Scrum workflows for ticket management, sprint tasks, bug tracking, acceptance criteria, and development-to-testing handoffs, collaborating with developers, QA, and product stakeholders through release.",
       },
     ],
-    stack: ["Angular", "TypeScript", "Angular Material", "RxJS", "REST APIs", "Azure DevOps"],
-  },
-  {
-    index: "02",
-    role: "Hardware & Software Support Assistant",
-    focus: "IT Support · Networking",
-    company: "College Computer Lab / Hardware Workshop",
-    location: "Amreli, Gujarat",
-    period: "2 Years",
-    summary:
-      "Provided comprehensive IT support for the college lab, including hardware repair, network maintenance, and OS administration for student systems.",
-    points: [
-      {
-        label: "Hardware Support",
-        text: "Diagnosed faults, replaced components, and performed routine maintenance on lab computers to minimize downtime.",
-      },
-      {
-        label: "Networking",
-        text: "Maintained localized network switches and LAN cabling, and rapidly addressed connectivity faults.",
-      },
-      {
-        label: "System Admin",
-        text: "Installed and configured Windows and Linux operating systems across lab systems, ensuring consistent environments.",
-      },
-      {
-        label: "Asset Tracking",
-        text: "Maintained records of equipment condition and usage to support informal IT asset tracking.",
-      },
-    ],
-    stack: ["Hardware Repair", "Networking", "Linux", "Windows", "Asset Management"],
-  },
+    stack: ["Angular", "TypeScript", "JavaScript", "HTML5", "SCSS", "Azure DevOps"],
+  }
 ];
 
 export type StackItem = { name: string; core?: boolean };
@@ -106,6 +94,7 @@ export const stack: {
       { name: "JavaScript", core: true },
       { name: "RxJS", core: true },
       { name: "Angular Material", core: true },
+      { name: "PrimeNG", core: true },
       { name: "React.js", core: true },
       { name: "HTML5", core: true },
       { name: "CSS3", core: true },
@@ -155,21 +144,6 @@ export const stack: {
       { name: "Docker" },
     ],
   },
-  {
-    index: "05",
-    group: "IT Support",
-    note: "Systems & operations",
-    items: [
-      { name: "Hardware Troubleshooting", core: true },
-      { name: "Linux Administration", core: true },
-      { name: "Windows & macOS", core: true },
-      { name: "Network Configuration", core: true },
-      { name: "SAP ERP" },
-      { name: "Tally ERP" },
-      { name: "Software Deployment" },
-      { name: "Asset Management" },
-    ],
-  },
 ];
 
 export const education = [
@@ -211,15 +185,29 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "talent-recruit",
+    slug: "factory-os",
     index: "01",
-    title: "Talent Recruit",
+    title: "Factory OS",
+    kind: "Manufacturing & Distribution Management Platform",
+    year: "2026",
+    summary:
+      "Designing and developing a full-stack manufacturing operations platform covering the complete business lifecycle from CRM and quotations to sales orders, inventory, procurement, production, and dispatch.",
+    contribution:
+      "Architecting interconnected business workflows such as Quotation → Sales Order → Inventory Analysis → Purchase/Production → Dispatch, with role-based access and module-specific responsibilities.",
+    stack: ["PostgreSQL", "Express.js", "Angular", "Node.js", "PrimeNG", "RxJS", "Signals"],
+    featured: true,
+    category: "fullstack",
+  },
+  {
+    slug: "ats",
+    index: "02",
+    title: "AI-Powered Enterprise Applicant Tracking System (ATS)",
     kind: "Applicant Tracking System",
     year: "2025 — Present",
     summary:
       "An AI-assisted recruitment and applicant tracking platform used by hiring teams to run a role from requisition through offer. An established product I joined and now work on day to day.",
     contribution:
-      "Leading the Offer, Settings and Reports modules — building new features, extending existing ones and fixing production issues.",
+      "Building new features, extending existing ones and fixing production issues.",
     stack: ["Angular", "TypeScript", "Angular Material", "RxJS", "REST APIs", "Azure DevOps"],
     confidential: true,
     featured: true,
@@ -227,7 +215,7 @@ export const projects: Project[] = [
   },
   {
     slug: "outreach-pro",
-    index: "02",
+    index: "03",
     title: "OutreachPro",
     kind: "Cold Outreach Platform",
     year: "2025",
@@ -242,14 +230,15 @@ export const projects: Project[] = [
   },
   {
     slug: "real-estate",
-    index: "03",
+    index: "04",
     title: "Property Listing Platform",
-    kind: "Full stack platform",
+    kind: "Real Estate Management Platform",
     year: "2025",
     summary:
-      "Property listings with search, enquiry and an admin surface. Express and MongoDB behind a React client, with JWT auth.",
-    contribution: "Built alone, front to back — currently in progress.",
-    stack: ["React", "Node.js", "Express", "MongoDB", "JWT"],
+      "Developed responsive React interfaces and RESTful APIs with Node.js and Express.js, integrating frontend workflows with MongoDB for persistent data management.",
+    contribution: "Worked across frontend and backend layers to implement features, debug application issues, fix API/data-flow problems, and perform functional testing to ensure reliable application behaviour.",
+    stack: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS"],
+    featured: true,
     category: "fullstack",
   },
 ];
