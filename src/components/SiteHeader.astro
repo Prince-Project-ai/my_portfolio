@@ -7,7 +7,15 @@ import Icon from "./Icon.astro";
   id="site-header"
   class="fixed inset-x-0 top-0 z-50 transition-all duration-200"
 >
-  <div class="wrap border-b border-dashed border-rule-strong">
+  <div class="wrap border-b border-rule-strong relative">
+    <span
+      aria-hidden="true"
+      class="grid-corner-dot left-0 -translate-x-1/2 translate-y-1/2 bottom-0"
+    ></span>
+    <span
+      aria-hidden="true"
+      class="grid-corner-dot right-0 translate-x-1/2 translate-y-1/2 bottom-0"
+    ></span>
     <div class="pad-inline flex h-[4rem] items-center justify-between">
       <a href="#top" class="font-display text-lg leading-none text-black md:text-xl">
         {site.name}
@@ -48,9 +56,9 @@ import Icon from "./Icon.astro";
     </div>
   </div>
 
-  <div id="mobile-nav" hidden class="border-t border-dashed border-rule-strong bg-paper md:hidden absolute w-full h-[calc(100vh-4rem)] overflow-y-auto">
+  <div id="mobile-nav" hidden class="border-t border-rule-strong bg-paper md:hidden absolute w-full h-[calc(100vh-4rem)] overflow-y-auto">
     <nav aria-label="Mobile" class="wrap pad-inline py-3 pb-24">
-      <ul class="divide-y divide-dashed divide-rule-strong">
+      <ul class="divide-y divide-rule-strong">
         {
           nav.map((item) => (
             <li>

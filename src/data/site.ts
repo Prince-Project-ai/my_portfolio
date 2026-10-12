@@ -7,11 +7,25 @@ export const site = {
   phoneHref: "tel:+919016091157",
   url: "https://prince-bavishi.netlify.app",
   /* Drop the PDF at public/prince-bavishi-resume.pdf to activate this. */
-  resume: "/Prince_Bavishi_cv.pdf",
+  resume: "/Prince_Bavishi_AI_FullStack.pdf",
+  resumes: [
+    {
+      role: "Full Stack Developer",
+      subtitle: "AI & Full Stack Systems",
+      href: "/Prince_Bavishi_AI_FullStack.pdf",
+      filename: "Prince_Bavishi_AI_FullStack.pdf",
+    },
+    {
+      role: "Forward Deployed Engineer",
+      subtitle: "Enterprise Solutions & Integration",
+      href: "/Prince_Bavishi_cv_Forward_Deployed_Engineer.pdf",
+      filename: "Prince_Bavishi_cv_Forward_Deployed_Engineer.pdf",
+    },
+  ],
   github: "https://github.com/PrinceDev90",
   linkedin: "https://www.linkedin.com/in/prince-bavishi-10x/",
   twitter: "https://x.com/PrinceBavishi10",
-  availability: "I'm really interested to meet you and discuss new projects!",
+  availability: "Available for full-time engineering roles, high-impact contracts, and forward-deployed engagements.",
 };
 
 export const nav = [
@@ -25,21 +39,21 @@ export const nav = [
 export const experience = [
   {
     index: "01",
-    role: "Freelance Software Developer",
-    focus: "Custom Software Solutions",
-    company: "Self-Employed",
+    role: "Full Stack Engineer & Consultant",
+    focus: "Enterprise Systems · ERP Architecture",
+    company: "Self-Employed / Freelance",
     location: "Remote",
     period: "Present",
     summary:
-      "Right now I am freelance and helping businesses to provide digital solutions by custom software.",
+      "Architecting and shipping end-to-end custom software solutions for growing businesses, focusing on operational workflow automation, scalable database schemas, and resilient client-side architecture.",
     points: [
       {
-        label: "Current Project",
-        text: "Currently building Factory OS, a full-stack manufacturing operations platform covering the complete business lifecycle from CRM and quotations to dispatch.",
+        label: "Flagship Platform",
+        text: "Architecting Factory OS, a full-lifecycle manufacturing ERP platform integrating CRM, dynamic quotation generation, sales pipeline tracking, inventory reconciliation, and dispatch automation.",
       },
       {
-        label: "Client Solutions",
-        text: "Delivering tailored digital solutions spanning frontend interfaces, backend APIs, and database architecture.",
+        label: "Full-Stack Execution",
+        text: "Delivering complete production solutions: normalized PostgreSQL data models, transactional Express/Node APIs, and high-performance reactive frontends using Angular 17+ and PrimeNG.",
       },
     ],
     stack: ["Angular", "React", "Node.js", "Express.js", "PostgreSQL", "MongoDB"],
@@ -47,31 +61,31 @@ export const experience = [
   {
     index: "02",
     role: "Software Developer",
-    focus: "Angular · Full Stack",
+    focus: "Angular · Enterprise SaaS",
     company: "Softrefine Technology Pvt. Ltd.",
     location: "Rajkot, India",
     period: "May 2025 — Present",
     summary:
-      "Develop and maintain a production-grade enterprise SaaS application using Angular, TypeScript, JavaScript, HTML5, and SCSS within an established architecture and complex business workflows.",
+      "Core contributor to a multi-tenant enterprise SaaS platform, engineering complex workflow engines, integrating real-time REST services, and ensuring high system reliability across production releases.",
     points: [
       {
         label: "Feature Ownership",
-        text: "Own frontend development tasks end-to-end, from understanding requirements and implementing UI/UX to building and integrating reusable components, connecting REST APIs, handling edge cases, debugging, testing, and delivering production-ready features.",
+        text: "Engineered critical hiring pipeline and workflow modules end-to-end, leveraging Angular, RxJS state management, and strict TypeScript architectures to guarantee rock-solid data reactivity.",
       },
       {
-        label: "Integration & Stability",
-        text: "Implement features and enhancements across multiple product modules by integrating REST APIs and working with shared components, services, and business logic while maintaining application stability.",
+        label: "API & Performance",
+        text: "Integrated REST APIs across high-traffic product modules, optimizing complex data grids, eliminating client-side bottlenecks, and maintaining state stability across asynchronous flows.",
       },
       {
-        label: "Debugging & QA",
-        text: "Investigate and resolve production and QA-reported defects by tracing issues across the UI, API responses, asynchronous flows, and business logic; perform functional, regression, edge-case, and API testing using Postman.",
+        label: "Production Reliability",
+        text: "Triaged and resolved complex production and QA defects; conducted comprehensive functional, regression, and API testing using Postman to safeguard release velocity.",
       },
       {
-        label: "Agile Workflow",
-        text: "Work with Azure DevOps and Agile/Scrum workflows for ticket management, sprint tasks, bug tracking, acceptance criteria, and development-to-testing handoffs, collaborating with developers, QA, and product stakeholders through release.",
+        label: "Agile & Delivery",
+        text: "Collaborated in an Azure DevOps Scrum environment, driving features through sprint planning, acceptance criteria validation, code reviews, and release deployment.",
       },
     ],
-    stack: ["Angular", "TypeScript", "JavaScript", "HTML5", "SCSS", "Azure DevOps"],
+    stack: ["Angular", "TypeScript", "JavaScript", "RxJS", "SCSS", "Azure DevOps"],
   }
 ];
 
@@ -188,12 +202,12 @@ export const projects: Project[] = [
     slug: "factory-os",
     index: "01",
     title: "Factory OS",
-    kind: "Manufacturing & Distribution Management Platform",
+    kind: "Manufacturing & Distribution ERP Platform",
     year: "2026",
     summary:
-      "Designing and developing a full-stack manufacturing operations platform covering the complete business lifecycle from CRM and quotations to sales orders, inventory, procurement, production, and dispatch.",
+      "Enterprise-grade manufacturing operations platform (ERP/MRP) unifying CRM, dynamic quotation generation, inventory ledger reconciliation, procurement, and dispatch tracking into a single operational system.",
     contribution:
-      "Architecting interconnected business workflows such as Quotation → Sales Order → Inventory Analysis → Purchase/Production → Dispatch, with role-based access and module-specific responsibilities.",
+      "Sole full-stack architect: modeled normalized PostgreSQL schemas, developed transactional REST APIs in Express/Node, and engineered the reactive Angular 17+ client using PrimeNG and fine-grained Signals.",
     stack: ["PostgreSQL", "Express.js", "Angular", "Node.js", "PrimeNG", "RxJS", "Signals"],
     featured: true,
     category: "fullstack",
@@ -202,12 +216,12 @@ export const projects: Project[] = [
     slug: "ats",
     index: "02",
     title: "AI-Powered Enterprise Applicant Tracking System (ATS)",
-    kind: "Applicant Tracking System",
+    kind: "Enterprise Recruitment SaaS",
     year: "2025 — Present",
     summary:
-      "An AI-assisted recruitment and applicant tracking platform used by hiring teams to run a role from requisition through offer. An established product I joined and now work on day to day.",
+      "High-scale recruitment management software powering candidate sourcing, automated resume parsing, interview scheduling, and hiring workflows for enterprise organizations.",
     contribution:
-      "Building new features, extending existing ones and fixing production issues.",
+      "Engineered core candidate pipeline modules, integrated complex backend endpoints, authored reusable UI component libraries, and optimized client-side rendering across high-volume hiring pipelines.",
     stack: ["Angular", "TypeScript", "Angular Material", "RxJS", "REST APIs", "Azure DevOps"],
     confidential: true,
     featured: true,
@@ -217,12 +231,12 @@ export const projects: Project[] = [
     slug: "outreach-pro",
     index: "03",
     title: "OutreachPro",
-    kind: "Cold Outreach Platform",
+    kind: "Automated Cold Outreach & Lead Engine",
     year: "2025",
     summary:
-      "A cold outreach platform that finds leads, enriches them, sends templated email, sequences follow-ups and tracks replies in one place.",
+      "High-deliverability sales engagement platform that discovers leads, enriches contact data, schedules personalized email sequences, and tracks engagement analytics in real time.",
     contribution:
-      "Built alone, architecture through delivery — ten lazy-loaded Angular modules over a shared component library.",
+      "Architected and shipped from scratch: structured 10 lazy-loaded Angular feature modules around a shared component library and stateful RxJS event bus for seamless lead workflows.",
     stack: ["Angular", "TypeScript", "Angular Material", "SCSS", "RxJS"],
     repo: "https://github.com/PrinceDev90/OutreachPro-frontend",
     featured: true,
@@ -232,11 +246,12 @@ export const projects: Project[] = [
     slug: "real-estate",
     index: "04",
     title: "Property Listing Platform",
-    kind: "Real Estate Management Platform",
+    kind: "Real Estate Marketplace Platform",
     year: "2025",
     summary:
-      "Developed responsive React interfaces and RESTful APIs with Node.js and Express.js, integrating frontend workflows with MongoDB for persistent data management.",
-    contribution: "Worked across frontend and backend layers to implement features, debug application issues, fix API/data-flow problems, and perform functional testing to ensure reliable application behaviour.",
+      "Full-stack property marketplace featuring dynamic multi-criteria search, agent portfolio dashboards, interactive property tours, and secure lead inquiry pipelines.",
+    contribution:
+      "Developed scalable REST APIs with Node.js and Express, designed indexed MongoDB document schemas, and implemented a responsive React frontend with efficient client-side filtering.",
     stack: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS"],
     featured: true,
     category: "fullstack",

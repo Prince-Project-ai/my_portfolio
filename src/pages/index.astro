@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import Hero from "../components/Hero.astro";
 import Marquee from "../components/Marquee.astro";
+import GridDivider from "../components/GridDivider.astro";
 import Work from "../components/Work.astro";
 import Experience from "../components/Experience.astro";
 import Stack from "../components/Stack.astro";
@@ -16,15 +17,15 @@ import SiteFooter from "../components/SiteFooter.astro";
   <main id="main" class="wrap pt-[4.5rem] md:pt-[4rem]">
     <Hero />
     <Marquee />
-    <hr class="border-t border-dashed border-rule-strong m-0" />
+    <GridDivider />
     <Work />
-    <hr class="border-t border-dashed border-rule-strong m-0" />
+    <GridDivider />
     <Experience />
-    <hr class="border-t border-dashed border-rule-strong m-0" />
+    <GridDivider />
     <Stack />
-    <hr class="border-t border-dashed border-rule-strong m-0" />
+    <GridDivider />
     <About />
-    <hr class="border-t border-dashed border-rule-strong m-0" />
+    <GridDivider />
     <Contact />
   </main>
   <SiteFooter />

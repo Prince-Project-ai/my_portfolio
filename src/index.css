@@ -9,7 +9,7 @@
 
 @theme {
   --font-display: "Space Grotesk", sans-serif;
-  --font-sans: "Lato", sans-serif;
+  --font-sans: "Inter", sans-serif;
   --font-mono: "Space Grotesk", monospace;
 
   --color-paper: #F3EEE3;
@@ -45,7 +45,7 @@
   --color-black: #F3EEE3;
   --color-moss: #A2AA92;
   --color-rule: rgba(235, 230, 216, 0.15);
-  --color-rule-strong: rgba(235, 230, 216, 0.35);
+  --color-rule-strong: rgba(235, 230, 216, 0.10);
   --color-rule-faint: rgba(235, 230, 216, 0.06);
   --color-ink-soft: #A5A394;
   --color-ink-faint: #7A786B;
@@ -75,7 +75,7 @@
 
   ::-webkit-scrollbar-track {
     background: var(--color-paper);
-    border-left: 1px dashed var(--color-rule-strong);
+    border-left: 1px solid var(--color-rule-strong);
   }
 
   ::-webkit-scrollbar-thumb {
@@ -93,6 +93,7 @@
     font-size: 1rem;
     line-height: 1.5; /* 24px baseline grid */
     font-feature-settings: "kern" 1, "liga" 1;
+    overflow-x: clip;
   }
 
   ::selection {
@@ -128,8 +129,8 @@
     width: 100%;
     max-width: 1280px;
     margin-inline: auto;
-    border-left: 1px dashed var(--color-rule-strong);
-    border-right: 1px dashed var(--color-rule-strong);
+    border-left: 1px solid var(--color-rule-strong);
+    border-right: 1px solid var(--color-rule-strong);
   }
 
   section, .pad-inline {
@@ -176,8 +177,29 @@
   .measure { max-width: 40rem; }
   .measure-tight { max-width: 32rem; }
 
-  .rule-t { border-top: 1px dashed var(--color-rule-strong); }
-  .rule-b { border-bottom: 1px dashed var(--color-rule-strong); }
+  .rule-t { border-top: 1px solid var(--color-rule-strong); }
+  .rule-b { border-bottom: 1px solid var(--color-rule-strong); }
+
+  /* Hollow corner circle dot with outer gap for grid intersections */
+  .grid-corner-dot {
+    position: absolute;
+    top: 0;
+    width: 5px;
+    height: 5px;
+    border-radius: 9999px;
+    border: 1.5px solid var(--color-rule-strong);
+    background-color: var(--color-paper);
+    box-shadow: 0 0 0 10px var(--color-paper);
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  /* Squircle curvature for cards and structural boxes */
+  .squircle-box,
+  .squircle-card {
+    border-radius: 35px;
+    corner-shape: squircle;
+  }
   
   /* Bleed element to reach the dashed wrap edges */
   .bleed {

@@ -1,6 +1,7 @@
 ---
 import { site } from "../data/site";
 import Icon from "./Icon.astro";
+import ResumeDropdown from "./ResumeDropdown.astro";
 import StackDiagram from "./StackDiagram.astro";
 ---
 
@@ -20,13 +21,18 @@ import StackDiagram from "./StackDiagram.astro";
           Hi, I'm <span class="italic text-moss">{site.name}</span>
         </h1>
 
-        <p class="mt-2 font-display text-title">Full Stack Engineer</p>
+        <p class="mt-2 font-display text-title min-h-[1.4em] flex items-center justify-center">
+          <span id="hero-typewriter">Full Stack Engineer</span>
+          <span
+            class="inline-block w-[2px] h-[1.1em] bg-moss ml-1 align-middle animate-pulse"
+            aria-hidden="true"
+          ></span>
+        </p>
 
         <p class="measure mx-auto mt-4 text-base leading-relaxed text-ink-soft">
-          I build web applications end to end — reusable Angular and React interfaces
-          on the front, REST APIs and data models behind them. Right now I'm a freelance developer 
-          helping businesses build custom solutions like Factory OS, and working on an 
-          AI-Powered Enterprise Applicant Tracking System (ATS) at Softrefine Technology.
+          Full Stack Engineer specializing in scalable enterprise web applications, complex business logic workflows,
+          and robust API architectures. Currently architecting Factory OS (Manufacturing ERP) and engineering core
+          features for a production multi-tenant Applicant Tracking System.
         </p>
 
         <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto">
@@ -34,15 +40,7 @@ import StackDiagram from "./StackDiagram.astro";
             See selected work
             <Icon name="arrow-down" size={15} />
           </a>
-          <a
-            href={site.resume}
-            download
-            class="btn btn-ghost"
-            aria-label="Download my resume as a PDF"
-          >
-            <Icon name="download" size={15} />
-            Download resume
-          </a>
+          <ResumeDropdown />
           <a href={`mailto:${site.email}`} class="btn btn-ghost">
             <Icon name="mail" size={15} />
             Get in touch
@@ -53,8 +51,16 @@ import StackDiagram from "./StackDiagram.astro";
 
     <!-- Facts -->
     <div
-      class="bleed mt-10 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 border-t border-dashed border-rule-strong pt-5"
+      class="bleed relative mt-10 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 border-t border-rule-strong pt-5"
     >
+      <span
+        aria-hidden="true"
+        class="grid-corner-dot left-0 -translate-x-1/2 -translate-y-1/2"
+      ></span>
+      <span
+        aria-hidden="true"
+        class="grid-corner-dot right-0 translate-x-1/2 -translate-y-1/2"
+      ></span>
       <dl class="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
         <div>
           <dt class="tag">Experience</dt>
@@ -101,3 +107,59 @@ import StackDiagram from "./StackDiagram.astro";
     </div>
   </div>
 </section>
+
+<script>
+  const initTypewriter = () => {
+    const el = document.getElementById("hero-typewriter");
+    if (!el) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
+    const roles = [
+      "Full Stack Engineer",
+      "Forward Deployed Engineer",
+      "MERN Stack Developer",
+      "PEAN Stack Developer",
+    ];
+
+    let roleIndex = 0;
+    let charIndex = roles[0].length;
+    let isDeleting = true;
+    let timer: ReturnType<typeof setTimeout> | null = null;
+
+    const tick = () => {
+      const currentRole = roles[roleIndex];
+
+      if (isDeleting) {
+        charIndex--;
+        el.textContent = currentRole.substring(0, charIndex);
+
+        if (charIndex === 0) {
+          isDeleting = false;
+          roleIndex = (roleIndex + 1) % roles.length;
+          timer = setTimeout(tick, 350);
+          return;
+        }
+        timer = setTimeout(tick, 35);
+      } else {
+        charIndex++;
+        el.textContent = currentRole.substring(0, charIndex);
+
+        if (charIndex === currentRole.length) {
+          isDeleting = true;
+          timer = setTimeout(tick, 2200);
+          return;
+        }
+        timer = setTimeout(tick, 75);
+      }
+    };
+
+    // Give visitors 2.2s to read the initial role before cycling
+    timer = setTimeout(tick, 2200);
+  };
+
+  initTypewriter();
+  document.addEventListener("astro:page-load", initTypewriter);
+</script>

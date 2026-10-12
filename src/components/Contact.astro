@@ -1,6 +1,7 @@
 ---
 import { site } from "../data/site";
 import Icon from "./Icon.astro";
+import ResumeDropdown from "./ResumeDropdown.astro";
 ---
 
 <section id="contact" class="section">
@@ -59,15 +60,7 @@ import Icon from "./Icon.astro";
           </div>
         </div>
 
-        <a
-          href={site.resume}
-          download
-          class="btn btn-ghost btn-sm"
-          aria-label="Download my resume as a PDF"
-        >
-          <Icon name="download" size={14} />
-          Download resume
-        </a>
+        <ResumeDropdown size="sm" align="left" />
 
         <div>
           <p class="tag">Elsewhere</p>

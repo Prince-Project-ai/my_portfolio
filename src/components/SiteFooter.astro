@@ -2,6 +2,8 @@
 import { site, nav } from "../data/site";
 import Icon from "./Icon.astro";
 import Monogram from "./Monogram.astro";
+import ResumeDropdown from "./ResumeDropdown.astro";
+import GridDivider from "./GridDivider.astro";
 import Wordmark from "./Wordmark.astro";
 
 const year = new Date().getFullYear();
@@ -13,8 +15,8 @@ const elsewhere = [
 ];
 ---
 
-<footer class="wrap">
-  <hr class="border-t border-dashed border-rule-strong m-0" />
+<footer class="wrap relative">
+  <GridDivider />
   <div class="pad-inline">
     <div class="grid-12 gap-y-10 py-12">
       <!-- Identity -->
@@ -31,15 +33,7 @@ const elsewhere = [
           {site.availability}
         </p>
 
-        <a
-          href={site.resume}
-          download
-          class="btn btn-ghost btn-sm mt-5"
-          aria-label="Download my resume as a PDF"
-        >
-          <Icon name="download" size={14} />
-          Download resume
-        </a>
+        <ResumeDropdown size="sm" align="left" dropUp={true} class="mt-5" />
       </div>
 
       <!-- Index -->
@@ -100,8 +94,8 @@ const elsewhere = [
     </div>
   </div>
 
-  <!-- Full-width dashed line above colophon -->
-  <hr class="border-t border-dashed border-rule-strong m-0" />
+  <!-- Full-width solid line above colophon -->
+  <GridDivider />
 
   <div class="pad-inline">
     <!-- Colophon -->
@@ -118,7 +112,4 @@ const elsewhere = [
       </div>
     </div>
   </div>
-
-  <!-- Closing dashed line at the very bottom of the wireframe box -->
-  <hr class="border-t border-dashed border-rule-strong m-0" />
 </footer>

@@ -10,10 +10,10 @@ const { project } = Astro.props;
 const isFeatured = Boolean(project.featured);
 ---
 
-<li class="flex flex-col border border-dashed border-rule-strong p-6 h-full">
+<li class="flex flex-col border border-rule-strong p-6 md:p-8 h-full squircle-box overflow-hidden bg-paper transition-shadow duration-300">
   <article class="flex flex-col flex-1">
     <!-- Index and Year header -->
-    <div class="flex items-baseline justify-between border-b border-dashed border-rule-strong pb-4 mb-4">
+    <div class="flex items-baseline justify-between border-b border-rule-strong pb-4 mb-4">
       <p class="font-display text-2xl leading-none text-moss">{project.index}</p>
       <p class="meta">{project.year}</p>
     </div>
@@ -37,7 +37,7 @@ const isFeatured = Boolean(project.featured);
     <p class="mt-2 leading-relaxed text-ink-soft text-sm">{project.summary}</p>
 
     <!-- What I actually did -->
-    <div class="mt-4 border-l border-dashed border-moss pl-4">
+    <div class="mt-4 border-l border-moss pl-4">
       <p class="tag">My contribution</p>
       <p class="mt-1 text-sm leading-relaxed">{project.contribution}</p>
     </div>

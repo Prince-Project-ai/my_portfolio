@@ -52,7 +52,7 @@ const coreCount = stack.reduce(
             "grid-cols-1 sm:grid-cols-2"; // 7 items / 2 = 4 rows
 
           return (
-            <article class:list={["relative flex flex-col border border-dashed border-rule-strong p-6 md:p-8 hover:bg-rule-faint transition-colors group", spanClass]}>
+            <article class:list={["relative flex flex-col border border-rule-strong p-6 md:p-8 hover:bg-rule-faint transition-colors group squircle-box overflow-hidden bg-paper", spanClass]}>
               <!-- Schematic Watermark -->
               <span class="absolute top-4 right-4 text-7xl font-display font-bold text-rule-strong opacity-20 pointer-events-none select-none group-hover:text-moss group-hover:opacity-10 transition-colors">
                 {group.index}
@@ -66,7 +66,7 @@ const coreCount = stack.reduce(
               <!-- Technical readout list -->
               <ul class:list={["relative z-10 grid gap-x-8 gap-y-3 mt-auto", innerGridClass]}>
                 {group.items.map((item) => (
-                  <li class="flex items-center justify-between border-b border-dashed border-rule-strong pb-2">
+                  <li class="flex items-center justify-between border-b border-rule-strong pb-2">
                     <div class="flex items-center gap-2 truncate">
                       <span class:list={["text-[0.65rem]", item.core ? "text-moss" : "text-ink-faint opacity-50"]}>
                         {item.core ? "■" : "□"}
