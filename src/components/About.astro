@@ -1,6 +1,5 @@
 ---
 import { site, education, hobbies } from "../data/site";
-import Icon from "./Icon.astro";
 ---
 
 <section id="about" class="section">
@@ -13,9 +12,9 @@ import Icon from "./Icon.astro";
     <div class="relative">
       
       <!-- Headline / Quote -->
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-display leading-tight tracking-tight text-black">
-        I'd rather understand why something is slow<br/>
-        <span class="italic text-moss">— than guess at a patch.</span>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display leading-tight tracking-tight text-black">
+        I'd rather understand why something is slow
+        <span class="italic text-moss block sm:inline">— than guess at a patch.</span>
       </h2>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10 mt-6 border-t border-rule-strong pt-10">
@@ -79,8 +78,8 @@ import Icon from "./Icon.astro";
           <!-- Status Box -->
           <div class="sm:col-span-2">
             <p class="tag mb-3">Current Focus</p>
-            <div class="border border-rule-strong p-5 bg-[var(--color-rule-faint)] squircle-box overflow-hidden">
-              <p class="font-mono text-[0.8rem] leading-relaxed text-ink">
+            <div class="border border-rule-strong p-5 sm:p-6 bg-[var(--color-rule-faint)] squircle-box overflow-hidden">
+              <p class="font-mono text-xs sm:text-[0.8rem] leading-relaxed text-ink">
                 > Architecting Factory OS (Full-Lifecycle Manufacturing ERP).<br/>
                 > Engineering multi-tenant ATS pipeline modules.<br/>
                 > Designing high-throughput REST APIs & relational schemas.<br/>

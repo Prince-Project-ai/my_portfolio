@@ -10,11 +10,11 @@ import StackDiagram from "./StackDiagram.astro";
     <div class="flex flex-col items-center text-center">
       <!-- Copy -->
       <div class="max-w-3xl">
-        <div class="flex items-center justify-center gap-2">
+        <div class="inline-flex items-center justify-center gap-2 px-3 py-1 rounded-full border border-rule-strong bg-rule-faint/30 mb-1 max-w-full">
           <span
             aria-hidden="true"
             class="h-1.5 w-1.5 shrink-0 rounded-full bg-moss"></span>
-          <p class="eyebrow">Software Engineer @ Softrefine Technology</p>
+          <p class="eyebrow text-[0.625rem] sm:text-xs tracking-wider truncate">Software Engineer @ Softrefine Technology</p>
         </div>
 
         <h1 class="mt-4 text-display">
@@ -36,12 +36,12 @@ import StackDiagram from "./StackDiagram.astro";
         </p>
 
         <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto">
-          <a href="#work" class="btn btn-solid">
+          <a href="#work" class="btn btn-solid w-full sm:w-auto max-w-xs justify-center">
             See selected work
             <Icon name="arrow-down" size={15} />
           </a>
-          <ResumeDropdown />
-          <a href={`mailto:${site.email}`} class="btn btn-ghost">
+          <ResumeDropdown class="w-full sm:w-auto max-w-xs flex justify-center" />
+          <a href={`mailto:${site.email}`} class="btn btn-ghost w-full sm:w-auto max-w-xs justify-center">
             <Icon name="mail" size={15} />
             Get in touch
           </a>
@@ -51,27 +51,27 @@ import StackDiagram from "./StackDiagram.astro";
 
     <!-- Facts -->
     <div
-      class="bleed relative mt-10 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 border-t border-rule-strong pt-5"
+      class="bleed relative mt-10 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-rule-strong pt-5 pb-1"
     >
       <span
         aria-hidden="true"
-        class="grid-corner-dot left-0 -translate-x-1/2 -translate-y-1/2"
+        class="grid-corner-dot left-1 sm:left-0 sm:-translate-x-1/2 -translate-y-1/2"
       ></span>
       <span
         aria-hidden="true"
-        class="grid-corner-dot right-0 translate-x-1/2 -translate-y-1/2"
+        class="grid-corner-dot right-1 sm:right-0 sm:translate-x-1/2 -translate-y-1/2"
       ></span>
-      <dl class="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
-        <div>
+      <dl class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4 sm:gap-8 max-w-2xl">
+        <div class="text-center sm:text-left shrink-0">
           <dt class="tag">Experience</dt>
-          <dd class="mt-0 text-sm">1+ year</dd>
+          <dd class="mt-0.5 text-sm font-medium">1+ year</dd>
         </div>
-        <div>
+        <div class="text-center sm:text-left">
           <dt class="tag">Status</dt>
-          <dd class="mt-0 text-sm">{site.availability}</dd>
+          <dd class="mt-0.5 text-sm text-ink-soft">{site.availability}</dd>
         </div>
       </dl>
-      <ul class="ml-auto flex list-none gap-2">
+      <ul class="flex items-center justify-center list-none gap-2 shrink-0 md:ml-auto">
         <li>
           <a
             href={site.github}

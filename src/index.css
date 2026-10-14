@@ -66,6 +66,8 @@
     scrollbar-width: thin;
     scrollbar-color: var(--color-rule-strong) var(--color-paper);
     -ms-overflow-style: auto;
+    overflow-x: clip;
+    max-width: 100%;
   }
 
   ::-webkit-scrollbar {
@@ -464,6 +466,11 @@
   .field:focus {
     outline: none;
     border-bottom-color: var(--color-moss);
+  }
+
+  select.field option {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
   }
 }
 

@@ -1,10 +1,8 @@
 ---
 import { site, nav } from "../data/site";
 import Icon from "./Icon.astro";
-import Monogram from "./Monogram.astro";
 import ResumeDropdown from "./ResumeDropdown.astro";
 import GridDivider from "./GridDivider.astro";
-import Wordmark from "./Wordmark.astro";
 
 const year = new Date().getFullYear();
 
@@ -28,9 +26,9 @@ const elsewhere = [
           </div>
         </div>
 
-        <p class="mt-4 flex items-center gap-2 text-sm text-ink-soft">
-          <span aria-hidden="true" class="h-1.5 w-1.5 shrink-0 rounded-full bg-moss"></span>
-          {site.availability}
+        <p class="mt-4 flex items-start gap-2.5 text-sm text-ink-soft">
+          <span aria-hidden="true" class="h-1.5 w-1.5 shrink-0 rounded-full bg-moss mt-1.5"></span>
+          <span>{site.availability}</span>
         </p>
 
         <ResumeDropdown size="sm" align="left" dropUp={true} class="mt-5" />
@@ -83,7 +81,7 @@ const elsewhere = [
         <p class="tag">Direct</p>
         <ul class="mt-3 space-y-2">
           <li>
-            <a href={`mailto:${site.email}`} class="link text-sm">{site.email}</a>
+            <a href={`mailto:${site.email}`} class="link text-sm break-all sm:break-normal">{site.email}</a>
           </li>
           <li>
             <a href={site.phoneHref} class="link text-sm">{site.phone}</a>

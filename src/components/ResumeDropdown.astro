@@ -47,7 +47,7 @@ const bridgeClass = dropUp
 <div class={`relative inline-block text-left resume-dropdown-container ${className}`}>
   <button
     type="button"
-    class={`btn btn-ghost ${size === "sm" ? "btn-sm" : ""} gap-2 group w-full justify-between sm:w-auto`}
+    class={`btn btn-ghost ${size === "sm" ? "btn-sm" : ""} gap-2 group w-full justify-center sm:justify-between sm:w-auto`}
     aria-haspopup="true"
     aria-expanded="false"
     data-resume-toggle
@@ -65,7 +65,7 @@ const bridgeClass = dropUp
   <div
     data-resume-menu
     hidden
-    class={`absolute z-40 w-72 sm:w-80 max-w-[calc(100vw-2rem)] border border-rule-strong bg-paper shadow-2xl transition-all duration-150 squircle-box ${placementClass} ${alignClass} ${bridgeClass}`}
+    class={`absolute z-40 w-72 sm:w-80 max-w-[calc(100vw-2.5rem)] border border-rule-strong bg-paper shadow-2xl transition-all duration-150 squircle-box ${placementClass} ${alignClass} ${bridgeClass}`}
   >
     <div class="border-b border-rule-strong px-4 py-2.5 flex items-center justify-between bg-paper-warm/40 rounded-t-[34px]">
       <span class="eyebrow text-[0.65rem] text-ink-faint">Select Role</span>

@@ -9,10 +9,10 @@ const { class: className = "" } = Astro.props;
 <div class={`relative w-full border-t border-rule-strong m-0 ${className}`}>
   <span
     aria-hidden="true"
-    class="grid-corner-dot left-0 -translate-x-1/2 -translate-y-1/2"
+    class="grid-corner-dot left-1 sm:left-0 sm:-translate-x-1/2 -translate-y-1/2"
   ></span>
   <span
     aria-hidden="true"
-    class="grid-corner-dot right-0 translate-x-1/2 -translate-y-1/2"
+    class="grid-corner-dot right-1 sm:right-0 sm:translate-x-1/2 -translate-y-1/2"
   ></span>
 </div>
