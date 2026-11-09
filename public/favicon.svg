@@ -1,8 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" rx="32" fill="#283618"/>
-  <!-- Isometric plate mark: the stack, reduced to two planes -->
-  <g stroke="#fefae0" stroke-width="2.4" stroke-linejoin="round" fill="none">
-    <path d="M32 17l14 8-14 8-14-8 14-8z"/>
-    <path d="M18 33l14 8 14-8" stroke="#606c38"/>
-  </g>
+  <!-- Warm Linen background circle with crisp ink border -->
+  <rect width="64" height="64" rx="18" fill="#F6F1E9"/>
+  <rect x="1" y="1" width="62" height="62" rx="17" fill="none" stroke="#111111" stroke-width="2"/>
+  
+  <!-- Monogram "PB" in Fraunces editorial serif -->
+  <text 
+    x="32" 
+    y="43" 
+    font-family="Fraunces, Georgia, serif" 
+    font-size="34" 
+    font-weight="900" 
+    text-anchor="middle" 
+    fill="#111111"
+    letter-spacing="-1"
+  >
+    P<tspan fill="#E8501C">B</tspan>
+  </text>
+
+  <!-- Accent indicator dot -->
+  <circle cx="50" cy="18" r="3.5" fill="#E8501C" stroke="#111111" stroke-width="1.5"/>
 </svg>

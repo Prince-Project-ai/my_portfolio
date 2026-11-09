@@ -1,55 +1,36 @@
 @import "tailwindcss";
 
 /* ============================================================
-   DESIGN TOKENS
-   Palette: fefae0 (paper) · 283618 (ink) · 000000 (black) · 606c38 (moss)
-   Type: Playfair Display (headings) · Inter (body) · Source Code Pro (meta)
-   Rhythm: 8-point system, compact
+   DESIGN TOKENS — ADOPTED FROM SONI PORTFOLIO EDITORIAL PALETTE
+   Palette: #f6f1e9 (paper) · #111111 (ink/black) · #55524c (muted) · #e8501c (accent)
+   Type: Fraunces (editorial headings) · Inter (body) · Space Grotesk (tech/meta)
    ============================================================ */
 
 @theme {
-  --font-display: "Space Grotesk", sans-serif;
-  --font-sans: "Inter", sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
   --font-mono: "Space Grotesk", monospace;
 
-  --color-paper: #F3EEE3;
-  --color-ink: #2B2B24;
-  --color-black: #2B2B24;
-  --color-moss: #6B7160;
+  --color-paper: #F6F1E9;
+  --color-ink: #111111;
+  --color-black: #111111;
+  --color-moss: #E8501C; /* Main accent brand color */
 
-  --color-rule: rgba(43, 43, 36, 0.15); /* Darker, crisper line using ink color */
-  --color-rule-strong: rgba(43, 43, 36, 0.35); /* Stronger accent line */
-  --color-rule-faint: rgba(43, 43, 36, 0.06); /* Very light shade for background lines */
-  /* Body copy — near full strength */
-  --color-ink-soft: #8C8A7A;
-  /* Labels and metadata. */
-  --color-ink-faint: #8C8A7A;
-  --color-paper-warm: #DFD3C3;
+  --color-rule: rgba(17, 17, 17, 0.25);
+  --color-rule-strong: #111111; /* Hard crisp structural border like the card design */
+  --color-rule-faint: rgba(17, 17, 17, 0.06);
+  /* Body copy — #55524c passes WCAG AA at ~5.5:1 against #F6F1E9 */
+  --color-ink-soft: #55524C;
+  /* Labels and metadata */
+  --color-ink-faint: #75726B;
+  --color-paper-warm: #EBE5DB;
 
-  /* Playfair has a large x-height and high stroke contrast,
-     so it runs visually bigger than Instrument Serif at the same size.
-     Sizes are pulled back and line-height loosened slightly. */
-  /* Line-heights adjusted to be relative for responsive wrapping */
-  --text-display: clamp(2.25rem, 5vw, 3.75rem);
-  --text-display--line-height: 1.1;
-  --text-headline: clamp(1.625rem, 2.8vw, 2.25rem);
-  --text-headline--line-height: 1.2;
-  --text-title: clamp(1.25rem, 1.8vw, 1.5rem);
-  --text-title--line-height: 1.3;
-}
-
-/* Dark mode overrides applied to the root element when .dark class is present */
-:root.dark {
-  --color-paper: #181816;
-  --color-ink: #EBE6D8;
-  --color-black: #F3EEE3;
-  --color-moss: #A2AA92;
-  --color-rule: rgba(235, 230, 216, 0.15);
-  --color-rule-strong: rgba(235, 230, 216, 0.10);
-  --color-rule-faint: rgba(235, 230, 216, 0.06);
-  --color-ink-soft: #A5A394;
-  --color-ink-faint: #7A786B;
-  --color-paper-warm: #22221E;
+  --text-display: clamp(2.5rem, 6vw, 4.25rem);
+  --text-display--line-height: 1.0;
+  --text-headline: clamp(1.75rem, 3.2vw, 2.5rem);
+  --text-headline--line-height: 1.15;
+  --text-title: clamp(1.25rem, 2vw, 1.625rem);
+  --text-title--line-height: 1.25;
 }
 
 /* ============================================================
@@ -129,10 +110,10 @@
 @layer components {
   .wrap {
     width: 100%;
-    max-width: 1280px;
+    max-width: 1124px;
     margin-inline: auto;
-    border-left: 1px solid var(--color-rule-strong);
-    border-right: 1px solid var(--color-rule-strong);
+    border-left: 2px solid var(--color-rule-strong);
+    border-right: 2px solid var(--color-rule-strong);
   }
 
   section, .pad-inline {
@@ -182,18 +163,9 @@
   .rule-t { border-top: 1px solid var(--color-rule-strong); }
   .rule-b { border-bottom: 1px solid var(--color-rule-strong); }
 
-  /* Hollow corner circle dot with outer gap for grid intersections */
+  /* Hollow corner circle dot with outer gap for grid intersections - disabled */
   .grid-corner-dot {
-    position: absolute;
-    top: 0;
-    width: 5px;
-    height: 5px;
-    border-radius: 9999px;
-    border: 1.5px solid var(--color-rule-strong);
-    background-color: var(--color-paper);
-    box-shadow: 0 0 0 10px var(--color-paper);
-    z-index: 10;
-    pointer-events: none;
+    display: none !important;
   }
 
   /* Squircle curvature for cards and structural boxes */
@@ -281,12 +253,21 @@
     justify-content: center;
     gap: 0.5rem;
     padding: 0.6875rem 1.375rem;
+    min-height: 2.75rem; /* 44px minimum touch target */
     border-radius: 9999px;
     font-size: 0.875rem;
     font-weight: 500;
     line-height: 1;
     border: 1px solid var(--color-ink);
-    transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+    transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease, transform 150ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 200ms ease;
+  }
+
+  .btn:hover {
+    transform: translateY(-1.5px);
+  }
+
+  .btn:active {
+    transform: translateY(0);
   }
 
   /* Minimal Scroll Reveal Animation */
@@ -408,18 +389,25 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 2.25rem;
-    height: 2.25rem;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    width: 2.75rem;
+    height: 2.75rem;
     border-radius: 9999px;
     border: 1px solid var(--color-rule-strong);
     color: var(--color-ink-soft);
-    transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+    transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease, transform 150ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .icon-btn:hover {
     background-color: var(--color-ink);
     border-color: var(--color-ink);
     color: var(--color-paper);
+    transform: translateY(-2px);
+  }
+
+  .icon-btn:active {
+    transform: translateY(0);
   }
 
   /* Small round badge holding an icon beside a label */
@@ -482,16 +470,7 @@
    ============================================================ */
 
 @layer utilities {
-  /* .paper-grain::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 100;
-    opacity: 0.02;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
-  } */
-
+  /* Utility classes */
 }
 
 @media (prefers-reduced-motion: reduce) {

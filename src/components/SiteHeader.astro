@@ -8,14 +8,6 @@ import Icon from "./Icon.astro";
   class="fixed inset-x-0 top-0 z-50 transition-all duration-200"
 >
   <div class="wrap border-b border-rule-strong relative bg-paper/95 backdrop-blur-md">
-    <span
-      aria-hidden="true"
-      class="grid-corner-dot left-1 sm:left-0 sm:-translate-x-1/2 translate-y-1/2 bottom-0"
-    ></span>
-    <span
-      aria-hidden="true"
-      class="grid-corner-dot right-1 sm:right-0 sm:translate-x-1/2 translate-y-1/2 bottom-0"
-    ></span>
     <div class="pad-inline flex h-[4rem] items-center justify-between">
       <a href="#top" class="font-display text-lg leading-none text-black md:text-xl">
         {site.name}
@@ -34,12 +26,6 @@ import Icon from "./Icon.astro";
           <Icon name="mail" size={14} />
           Contact
         </a>
-
-        <button id="theme-toggle-desktop" type="button" class="icon-btn theme-toggle" aria-label="Toggle theme" title="Theme: System">
-          <span data-theme-icon="system"><Icon name="monitor" size={15} /></span>
-          <span data-theme-icon="light" hidden><Icon name="sun" size={15} /></span>
-          <span data-theme-icon="dark" hidden><Icon name="moon" size={15} /></span>
-        </button>
       </nav>
 
       <button
@@ -73,16 +59,6 @@ import Icon from "./Icon.astro";
             </li>
           ))
         }
-        <li>
-          <div class="flex items-center justify-between py-3">
-            <span class="font-display text-lg text-black">Theme</span>
-            <button id="theme-toggle-mobile" type="button" class="icon-btn theme-toggle" aria-label="Toggle theme" title="Theme: System">
-              <span data-theme-icon="system"><Icon name="monitor" size={15} /></span>
-              <span data-theme-icon="light" hidden><Icon name="sun" size={15} /></span>
-              <span data-theme-icon="dark" hidden><Icon name="moon" size={15} /></span>
-            </button>
-          </div>
-        </li>
       </ul>
       <p class="meta mt-4">{site.availability}</p>
     </nav>
@@ -144,49 +120,4 @@ import Icon from "./Icon.astro";
     );
     sections.forEach((section) => observer.observe(section));
   }
-
-  // Theme logic
-  const themeToggles = document.querySelectorAll('.theme-toggle');
-  const themes = ['system', 'light', 'dark'];
-
-  const applyTheme = (theme) => {
-    if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  };
-
-  const updateIcons = (theme) => {
-    themeToggles.forEach(btn => {
-      // @ts-ignore
-      btn.title = `Theme: ${theme.charAt(0).toUpperCase() + theme.slice(1)}`;
-      btn.querySelectorAll('[data-theme-icon]').forEach(icon => {
-        // @ts-ignore
-        icon.hidden = icon.getAttribute('data-theme-icon') !== theme;
-      });
-    });
-  };
-
-  const currentTheme = (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) || 'system';
-  updateIcons(currentTheme);
-
-  themeToggles.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const activeTheme = (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) || 'system';
-      const nextIndex = (themes.indexOf(activeTheme) + 1) % themes.length;
-      const newTheme = themes[nextIndex];
-      
-      localStorage.setItem('theme', newTheme);
-      applyTheme(newTheme);
-      updateIcons(newTheme);
-    });
-  });
-
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-    const activeTheme = (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) || 'system';
-    if (activeTheme === 'system') {
-      applyTheme('system');
-    }
-  });
 </script>

@@ -1,87 +1,84 @@
 ---
-import { stack } from "../data/site";
-
-const coreCount = stack.reduce(
-  (total, group) => total + group.items.filter((item) => item.core).length,
-  0,
-);
+// Skills structured matching the exact 6-category layout from the reference image
+const skillGroups = [
+  {
+    category: "Frontend",
+    skills:
+      "Angular V2 — V17+, TypeScript, JavaScript, PrimeNG, Angular Material, RxJS, Signals, Tailwind CSS, Bootstrap 5, SCSS, HTML5, CSS3, Responsive Design, Cross-browser Compatibility",
+  },
+  {
+    category: "Backend & APIs",
+    skills:
+      "Nest.js, Node.js, Express.js, REST API Architecture, Core Java, Hibernate, Java Servlet, JWT Auth, Microservices Architecture, Postman",
+  },
+  {
+    category: "Data & Databases",
+    skills:
+      "PostgreSQL, MySQL, MongoDB, SQL, Relational Schema Design, Query Optimization, Database Normalization, Indexed Collections",
+  },
+  {
+    category: "Platforms & DevOps",
+    skills:
+      "Azure DevOps, Git, GitHub, Docker, Netlify, VS Code, Linux/WSL, Agile/Scrum Sprint Workflows",
+  },
+  {
+    category: "Testing & Reliability",
+    skills:
+      "Postman API Testing, Functional & Regression Testing, Defect Triage, Cross-Platform Verification, API Health Validation",
+  },
+  {
+    category: "Agentic AI",
+    isAi: true,
+    tag: "AI-ASSISTED",
+    skills:
+      "Autonomous agent workflows, agentic automation pipelines, and modern AI-assisted engineering systems accelerating full-stack delivery.",
+  },
+];
 ---
 
 <section id="stack" class="section">
   <div>
-    <div class="section-head">
-      <div class="flex flex-wrap items-end justify-between gap-4">
-        <div>
-          <p class="eyebrow">03 — Stack</p>
-          <h2 class="mt-3 text-headline">What I work with</h2>
-          <p class="measure text-ink-soft">
-            Grouped by layer, and marked by how often I actually reach for it.
-          </p>
-        </div>
-
-        <!-- Legend explains the two states -->
-        <dl class="flex flex-wrap items-center gap-x-5 gap-y-2">
-          <div class="flex items-center gap-2">
-            <dt class="text-[0.65rem] text-moss">■</dt>
-            <dd class="tag">Daily — {coreCount}</dd>
-          </div>
-          <div class="flex items-center gap-2">
-            <dt class="text-[0.65rem] text-ink-faint opacity-50">□</dt>
-            <dd class="tag">Familiar</dd>
-          </div>
-        </dl>
-      </div>
+    <!-- Section Header matching reference image: 02 — SPECIFICATION / Skills & Stack -->
+    <div class="mb-10">
+      <p class="font-mono text-xs font-bold uppercase tracking-[0.18em] text-moss">
+        02 — SPECIFICATION
+      </p>
+      <h2 class="mt-2 font-display text-4xl sm:text-5xl font-bold text-black tracking-tight">
+        Skills & Stack
+      </h2>
     </div>
 
-    <!-- Blueprint Bento Grid -->
-    <div class="grid grid-cols-12 gap-6 mt-10">
+    <!-- 3-Column Editorial Grid matching reference image -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10">
       {
-        stack.map((group) => {
-          // Dynamic span mapping for zigzag bento layout
-          const spanClass = 
-            group.index === "01" ? "col-span-12 lg:col-span-8" :
-            group.index === "02" ? "col-span-12 lg:col-span-4" :
-            group.index === "03" ? "col-span-12 lg:col-span-4" :
-            "col-span-12 lg:col-span-8";
-
-          // Dynamic internal grid columns to balance row heights perfectly
-          const innerGridClass = 
-            group.index === "01" ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" : // 12 items / 3 = 4 rows
-            group.index === "02" ? "grid-cols-1 sm:grid-cols-2" : // 8 items / 2 = 4 rows
-            group.index === "03" ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-1" : // 5 items / 1 = 5 rows
-            "grid-cols-1 sm:grid-cols-2"; // 7 items / 2 = 4 rows
-
-          return (
-            <article class:list={["relative flex flex-col border border-rule-strong p-6 md:p-8 hover:bg-rule-faint transition-colors group squircle-box overflow-hidden bg-paper", spanClass]}>
-              <!-- Schematic Watermark -->
-              <span class="absolute top-4 right-4 text-7xl font-display font-bold text-rule-strong opacity-20 pointer-events-none select-none group-hover:text-moss group-hover:opacity-10 transition-colors">
-                {group.index}
-              </span>
-
-              <div class="relative z-10 mb-8 border-l-2 border-moss pl-4">
-                <h3 class="font-display text-2xl text-black leading-none">{group.group}</h3>
-                <p class="mt-2 font-mono text-sm text-ink-soft">{group.note}</p>
+        skillGroups.map((group) => (
+          <div class="flex flex-col justify-between">
+            <div>
+              <!-- Category Header with optional AI-ASSISTED tag -->
+              <div class="flex items-center gap-2 mb-2">
+                <h3 class="font-display text-xl sm:text-2xl font-bold text-black">
+                  {group.category}
+                </h3>
+                {group.tag && (
+                  <span class="font-sans text-[0.625rem] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-moss text-white">
+                    {group.tag}
+                  </span>
+                )}
               </div>
 
-              <!-- Technical readout list -->
-              <ul class:list={["relative z-10 grid gap-x-8 gap-y-3 mt-auto", innerGridClass]}>
-                {group.items.map((item) => (
-                  <li class="flex items-center justify-between border-b border-rule-strong pb-2">
-                    <div class="flex items-center gap-2 truncate">
-                      <span class:list={["text-[0.65rem]", item.core ? "text-moss" : "text-ink-faint opacity-50"]}>
-                        {item.core ? "■" : "□"}
-                      </span>
-                      <span class="font-mono text-sm text-ink truncate">{item.name}</span>
-                    </div>
-                    {item.core && (
-                      <span class="text-[0.6rem] font-mono uppercase tracking-widest text-moss opacity-80 ml-2">Core</span>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </article>
-          );
-        })
+              <!-- Skills prose list -->
+              <p class="font-sans text-sm leading-relaxed text-ink-soft">
+                {group.skills}
+              </p>
+            </div>
+
+            <!-- Bottom border divider under each category -->
+            <div class:list={[
+              "mt-6 border-b-2",
+              group.isAi ? "border-moss" : "border-black"
+            ]}></div>
+          </div>
+        ))
       }
     </div>
   </div>

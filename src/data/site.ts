@@ -32,31 +32,34 @@ export const nav = [
   { label: "Work", href: "#work", index: "01" },
   { label: "Experience", href: "#experience", index: "02" },
   { label: "Stack", href: "#stack", index: "03" },
-  { label: "About", href: "#about", index: "04" },
-  { label: "Contact", href: "#contact", index: "05" },
+  { label: "Contact", href: "#contact", index: "04" },
 ];
 
 export const experience = [
   {
     index: "01",
-    role: "Full Stack Engineer & Consultant",
-    focus: "Enterprise Systems · ERP Architecture",
-    company: "Self-Employed / Freelance",
+    role: "Full Stack Engineer & AI Systems Developer",
+    focus: "Enterprise Systems · Agentic AI · ERP Architecture",
+    company: "Contract & Client Engagements",
     location: "Remote",
-    period: "Present",
+    period: "2025 — Present",
     summary:
-      "Architecting and shipping end-to-end custom software solutions for growing businesses, focusing on operational workflow automation, scalable database schemas, and resilient client-side architecture.",
+      "Architecting and shipping end-to-end custom software solutions and AI-assisted workflows for growing businesses, focusing on operational automation, scalable backend architectures, and resilient reactive client applications.",
     points: [
       {
         label: "Flagship Platform",
-        text: "Architecting Factory OS, a full-lifecycle manufacturing ERP platform integrating CRM, dynamic quotation generation, sales pipeline tracking, inventory reconciliation, and dispatch automation.",
+        text: "Architected Factory OS, an enterprise manufacturing ERP platform integrating CRM, dynamic quotation generation, inventory ledger reconciliation, and automated dispatch workflows.",
+      },
+      {
+        label: "Agentic AI & Nest.js Services",
+        text: "Integrated AI-assisted development practices and agentic automation pipelines, building modular microservices with Nest.js and Node.js for automated data processing and workflow acceleration.",
       },
       {
         label: "Full-Stack Execution",
-        text: "Delivering complete production solutions: normalized PostgreSQL data models, transactional Express/Node APIs, and high-performance reactive frontends using Angular 17+ and PrimeNG.",
+        text: "Delivering complete production solutions: normalized PostgreSQL data models, transactional Express & Nest.js APIs, and high-performance reactive frontends using Angular 17+ and PrimeNG.",
       },
     ],
-    stack: ["Angular", "React", "Node.js", "Express.js", "PostgreSQL", "MongoDB"],
+    stack: ["Nest.js", "Angular", "Agentic AI", "AI-Assisted Dev", "Node.js", "Express.js", "PostgreSQL", "MongoDB"],
   },
   {
     index: "02",

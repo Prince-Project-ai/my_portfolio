@@ -1,0 +1,125 @@
+---
+import type { Project } from "../data/site";
+import Icon from "./Icon.astro";
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<div class="border border-rule-strong bg-paper squircle-box p-6 md:p-10 mb-8 transition-all duration-300 hover:border-moss/70 hover:shadow-xl group relative overflow-hidden">
+  <!-- Accent corner mark -->
+  <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-moss/10 to-transparent pointer-events-none rounded-tr-[35px]"></div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+    <!-- Left: Content & Architecture highlights (7 cols) -->
+    <div class="lg:col-span-7 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="font-mono text-xs font-bold uppercase tracking-wider text-moss border border-moss/40 px-2.5 py-0.5 rounded-full bg-moss/5">
+            ★ Flagship Architecture · {project.year}
+          </span>
+          <span class="font-mono text-xs text-ink-faint">Index / {project.index}</span>
+        </div>
+
+        <h3 class="font-display text-3xl md:text-4xl font-bold text-black group-hover:text-moss transition-colors duration-200">
+          {project.title}
+        </h3>
+        <p class="font-mono text-xs uppercase tracking-wider text-ink-faint mt-1">
+          {project.kind}
+        </p>
+
+        <p class="mt-4 text-base leading-relaxed text-ink-soft">
+          {project.summary}
+        </p>
+
+        <!-- Technical Deep-Dive Callout -->
+        <div class="mt-5 border-l-2 border-moss pl-4 py-1 bg-rule-faint/30 rounded-r-lg">
+          <span class="font-mono text-[0.65rem] uppercase tracking-widest text-moss font-bold block mb-1">
+            System Design & Architectural Role
+          </span>
+          <p class="text-sm leading-relaxed text-ink">
+            {project.contribution}
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-6 pt-6 border-t border-rule-strong">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <ul class="flex flex-wrap gap-1.5 max-w-md">
+            {project.stack.map((tech) => (
+              <li class="pill pill-core font-mono text-xs">{tech}</li>
+            ))}
+          </ul>
+
+          <div class="flex items-center gap-2">
+            {project.live && (
+              <a href={project.live} target="_blank" rel="noopener noreferrer" class="btn btn-solid btn-sm">
+                View Live System
+                <Icon name="arrow-up-right" size={13} />
+              </a>
+            )}
+            {project.repo && (
+              <a href={project.repo} target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
+                Repository
+                <Icon name="github" size={14} />
+              </a>
+            )}
+            {project.confidential && (
+              <span class="font-mono text-xs text-ink-faint inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-rule-strong bg-rule-faint/20">
+                <span class="w-1.5 h-1.5 rounded-full bg-moss"></span> Proprietary Enterprise System
+              </span>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Visual Schematic / Mockup Frame (5 cols) -->
+    <div class="lg:col-span-5">
+      <div class="relative rounded-2xl border-2 border-black bg-paper-warm/50 p-5 shadow-[6px_6px_0px_#111111] transition-transform duration-300 group-hover:-translate-y-1">
+        <!-- Terminal / System Header -->
+        <div class="flex items-center justify-between border-b border-rule-strong pb-3 mb-4">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-moss"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-rule-strong"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-rule-strong"></span>
+          </div>
+          <span class="font-mono text-[0.65rem] uppercase tracking-wider text-ink-faint">system_architecture.v1</span>
+        </div>
+
+        <!-- Simulated Architecture Blueprint -->
+        <div class="space-y-3 font-mono text-xs">
+          <div class="p-3 rounded-lg border border-rule-strong bg-paper">
+            <div class="text-moss font-bold text-[0.7rem] uppercase tracking-wider">Frontend Layer</div>
+            <div class="text-ink text-xs mt-0.5 font-medium">Angular 17+ · Signals · PrimeNG</div>
+            <div class="text-ink-soft text-[0.65rem] mt-0.5">Reactive state, sub-50ms data grid updates</div>
+          </div>
+
+          <div class="text-center text-moss font-mono text-xs">↓ REST API / Transactional Controller</div>
+
+          <div class="p-3 rounded-lg border border-rule-strong bg-paper">
+            <div class="text-moss font-bold text-[0.7rem] uppercase tracking-wider">Service & API Gateway</div>
+            <div class="text-ink text-xs mt-0.5 font-medium">Express.js / Node.js Microservices</div>
+            <div class="text-ink-soft text-[0.65rem] mt-0.5">JWT Auth, PDF Quotations, Real-time Dispatch</div>
+          </div>
+
+          <div class="text-center text-moss font-mono text-xs">↓ ACID Normalized Transactions</div>
+
+          <div class="p-3 rounded-lg border border-rule-strong bg-paper">
+            <div class="text-moss font-bold text-[0.7rem] uppercase tracking-wider">Persistence Layer</div>
+            <div class="text-ink text-xs mt-0.5 font-medium">PostgreSQL Relational Ledger</div>
+            <div class="text-ink-soft text-[0.65rem] mt-0.5">ACID compliant multi-location inventory</div>
+          </div>
+        </div>
+
+        <div class="mt-4 pt-3 border-t border-rule-strong flex items-center justify-between text-[0.65rem] font-mono text-ink-soft">
+          <span>Status: Production Ready</span>
+          <span class="text-moss font-bold">● Active Deployment</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

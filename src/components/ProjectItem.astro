@@ -10,7 +10,7 @@ const { project } = Astro.props;
 const isFeatured = Boolean(project.featured);
 ---
 
-<li class="flex flex-col border border-rule-strong p-6 md:p-8 h-full squircle-box overflow-hidden bg-paper transition-shadow duration-300">
+<li class="flex flex-col border border-rule-strong p-6 md:p-8 h-full squircle-box overflow-hidden bg-paper transition-all duration-300 hover:border-moss/70 hover:shadow-lg hover:-translate-y-1 group">
   <article class="flex flex-col flex-1">
     <!-- Index and Year header -->
     <div class="flex items-baseline justify-between border-b border-rule-strong pb-4 mb-4">
@@ -29,7 +29,7 @@ const isFeatured = Boolean(project.featured);
     </div>
 
     <!-- Title -->
-    <h3 class="mt-3 font-display text-xl text-black md:text-2xl">
+    <h3 class="mt-3 font-display text-xl text-black md:text-2xl transition-colors duration-200 group-hover:text-moss">
       {project.title}
     </h3>
 

@@ -1,0 +1,87 @@
+---
+import type { Project } from "../data/site";
+import Icon from "./Icon.astro";
+
+interface Props {
+  project: Project;
+  index: number;
+}
+
+const { project, index } = Astro.props;
+// Staggered sticky top offset so cards cleanly stack like physical index cards
+const stickyTopOffset = `${5 + index * 1.5}rem`;
+---
+
+<div
+  class="sticky project-stack-card border-2 border-black squircle-box bg-paper p-6 md:p-8 mb-12 last:mb-0 shadow-[6px_6px_0px_#111111] transition-all duration-300 group"
+  style={`top: ${stickyTopOffset}; z-index: ${index + 10};`}
+>
+  <!-- Card Header -->
+  <div class="flex flex-wrap items-baseline justify-between border-b-2 border-black pb-4 mb-6 gap-3">
+    <div>
+      <div class="flex items-center gap-2">
+        <span class="font-mono text-xs font-bold text-moss">0{project.index}</span>
+        <span class="font-mono text-xs text-ink-faint uppercase tracking-wider">// {project.kind}</span>
+      </div>
+      <h3 class="font-display text-2xl md:text-3xl font-bold text-black mt-1 group-hover:text-moss transition-colors">
+        {project.title}
+      </h3>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <span class="font-mono text-xs px-2.5 py-1 rounded-full border border-black text-ink font-bold bg-paper-warm">
+        {project.year}
+      </span>
+      {project.confidential && (
+        <span class="font-mono text-xs px-2.5 py-1 rounded-full border border-moss/60 text-moss bg-moss/10 font-bold">
+          Enterprise NDA
+        </span>
+      )}
+    </div>
+  </div>
+
+  <!-- Card Body -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+    <div class="lg:col-span-8">
+      <p class="text-base text-ink-soft leading-relaxed font-sans">{project.summary}</p>
+      
+      <div class="mt-4 border-l-2 border-moss pl-4 py-1.5 bg-rule-faint/30 rounded-r-lg">
+        <span class="font-mono text-xs text-moss font-bold block uppercase tracking-wider">
+          Engineering Responsibility & Contribution
+        </span>
+        <p class="text-sm text-ink mt-1 font-medium leading-relaxed">{project.contribution}</p>
+      </div>
+    </div>
+
+    <div class="lg:col-span-4 flex flex-col justify-between border-t lg:border-t-0 lg:border-l-2 border-black pt-4 lg:pt-0 lg:pl-6 h-full">
+      <div>
+        <span class="font-mono text-[0.65rem] text-ink-faint uppercase tracking-wider block mb-2 font-bold">
+          Technologies Used
+        </span>
+        <div class="flex flex-wrap gap-1.5">
+          {project.stack.map((s) => (
+            <span class="pill pill-core font-mono text-xs">{s}</span>
+          ))}
+        </div>
+      </div>
+
+      <div class="mt-6 pt-4 border-t-2 border-black flex items-center gap-3">
+        {project.live && (
+          <a href={project.live} target="_blank" rel="noopener noreferrer" class="btn btn-solid btn-sm text-xs">
+            Live Demo <Icon name="arrow-up-right" size={13} />
+          </a>
+        )}
+        {project.repo && (
+          <a href={project.repo} target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm text-xs">
+            GitHub <Icon name="github" size={13} />
+          </a>
+        )}
+        {project.confidential && (
+          <span class="font-mono text-xs text-ink-faint italic">
+            🔒 Proprietary Codebase
+          </span>
+        )}
+      </div>
+    </div>
+  </div>
+</div>
