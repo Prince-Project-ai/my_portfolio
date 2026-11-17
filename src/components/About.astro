@@ -30,9 +30,9 @@ import { site, education, hobbies } from "../data/site";
               and why maintainable abstractions preserve company velocity.
             </p>
             <p>
-              My expertise spans the full system lifecycle. On the client, I engineer reactive, high-performance interfaces
-              in Angular (RxJS & Signals) and React. On the backend, I design transactional REST services
-              in Node.js, Express, and Core Java, backed by normalized PostgreSQL and MongoDB schemas.
+              My expertise spans the full system lifecycle across MERN and MEAN stacks. On the client, I engineer reactive, high-performance interfaces
+              in Angular (RxJS & Signals) and React.js with Tailwind CSS. On the backend, I design transactional REST services
+              in Node.js, Express, and NestJS, backed by normalized PostgreSQL and MongoDB schemas with JWT/RBAC security.
               I approach every project with an owner's mindset: writing code that is performant, observable, and built to scale.
             </p>
           </div>
@@ -51,6 +51,7 @@ import { site, education, hobbies } from "../data/site";
                     <p class="font-mono text-[0.7rem] uppercase tracking-widest text-ink-faint">{entry.period}</p>
                     <p class="mt-1 text-sm font-medium text-ink">{entry.degree}</p>
                     <p class="mt-0.5 text-sm text-ink-soft">{entry.school}</p>
+                    {entry.details && <p class="mt-1 text-xs text-ink-faint font-mono">{entry.details}</p>}
                   </li>
                 ))
               }
@@ -80,9 +81,9 @@ import { site, education, hobbies } from "../data/site";
             <p class="tag mb-3">Current Focus</p>
             <div class="border border-rule-strong p-5 sm:p-6 bg-[var(--color-rule-faint)] squircle-box overflow-hidden">
               <p class="font-mono text-xs sm:text-[0.8rem] leading-relaxed text-ink">
-                > Architecting Factory OS (Full-Lifecycle Manufacturing ERP).<br/>
-                > Engineering multi-tenant ATS pipeline modules.<br/>
-                > Designing high-throughput REST APIs & relational schemas.<br/>
+                > Building CRM inventory & billing modules at World Annex Infotech.<br/>
+                > Architecting Factory OS (Full-Lifecycle Manufacturing ERP/CRM).<br/>
+                > Delivering full-stack SaaS features with AI-assisted velocity.<br/>
                 <span class="animate-pulse font-bold text-moss">_</span>
               </p>
             </div>

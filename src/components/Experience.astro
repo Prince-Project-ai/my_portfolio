@@ -1,10 +1,10 @@
 ---
-import { experience } from "../data/site";
+import { experience, education, achievements } from "../data/site";
 ---
 
 <section id="experience" class="section">
   <div>
-    <!-- Section Head: Matching Soni's "02 — RECORD / Experience" format -->
+    <!-- Section Head: Matching "02 — RECORD / Experience" format -->
     <div class="mb-10">
       <p class="font-mono text-xs font-bold uppercase tracking-[0.18em] text-moss">
         02 — RECORD
@@ -19,14 +19,14 @@ import { experience } from "../data/site";
       {
         experience.map((job) => (
           <article class="grid grid-cols-1 md:grid-cols-12 gap-y-3 gap-x-8 py-8 border-b border-rule-strong">
-            <!-- Left: Date Range (approx 170-220px / 3 cols) -->
+            <!-- Left: Date Range (3 cols) -->
             <div class="md:col-span-3">
               <span class="font-mono text-sm text-ink-soft block font-medium">
                 {job.period}
               </span>
             </div>
 
-            <!-- Right: Role Title, Company in Terracotta, and Bullet List (9 cols) -->
+            <!-- Right: Role Title, Company in Moss, and Bullet List (9 cols) -->
             <div class="md:col-span-9">
               <h3 class="font-display text-2xl font-bold text-black leading-snug">
                 {job.role}
@@ -35,7 +35,7 @@ import { experience } from "../data/site";
                 {job.company} · {job.location}
               </p>
 
-              <!-- Bullets matching Soni's clean bulleted list -->
+              <!-- Bullets matching clean bulleted list -->
               <ul class="mt-4 space-y-2.5 text-ink-soft text-sm leading-relaxed list-disc list-outside pl-4">
                 {job.points.map((point) => (
                   <li class="pl-1">
@@ -56,6 +56,57 @@ import { experience } from "../data/site";
           </article>
         ))
       }
+
+      <!-- Education & Key Milestones Block -->
+      <article class="grid grid-cols-1 md:grid-cols-12 gap-y-6 gap-x-8 py-8 border-b border-rule-strong">
+        <!-- Left: Category Label -->
+        <div class="md:col-span-3">
+          <span class="font-mono text-sm text-ink-soft block font-medium uppercase tracking-wider">
+            Education & Honors
+          </span>
+        </div>
+
+        <!-- Right: Education and Achievements Grid (9 cols) -->
+        <div class="md:col-span-9 space-y-8">
+          <!-- Degrees -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {
+              education.map((item) => (
+                <div class="border-l-2 border-moss pl-4 py-1">
+                  <span class="font-mono text-xs text-moss font-bold block">{item.period}</span>
+                  <h4 class="font-display text-lg font-bold text-black mt-1">{item.degree}</h4>
+                  <p class="text-xs text-ink-soft font-medium mt-0.5">{item.school}</p>
+                  {item.details && (
+                    <p class="text-xs text-ink-soft/90 mt-2 font-mono leading-relaxed">{item.details}</p>
+                  )}
+                </div>
+              ))
+            }
+          </div>
+
+          <!-- Key Achievements -->
+          <div class="pt-6 border-t border-rule-strong">
+            <h4 class="font-mono text-xs font-bold uppercase tracking-widest text-ink-faint mb-4">
+              Key Achievements & Milestones
+            </h4>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {
+                achievements.map((ach) => (
+                  <div class="p-4 rounded-xl border border-rule-strong bg-paper-warm flex flex-col justify-between">
+                    <div>
+                      <span class="font-mono text-[0.65rem] font-bold uppercase tracking-wider text-moss block mb-1">
+                        {ach.tag}
+                      </span>
+                      <h5 class="font-display text-sm font-bold text-black">{ach.title}</h5>
+                      <p class="text-xs text-ink-soft mt-1.5 leading-relaxed">{ach.description}</p>
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </article>
     </div>
   </div>
 </section>

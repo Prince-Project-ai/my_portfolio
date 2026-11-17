@@ -1,19 +1,21 @@
 export const site = {
   name: "Prince Bavishi",
   role: "Full Stack Engineer",
-  location: "Ahmedabad, Gujarat, India",
+  summary:
+    "Full Stack Developer with 1.5+ years of experience building and maintaining production SaaS applications across MERN and MEAN stacks (React.js, Angular, Node.js, NestJS, TypeScript) with PostgreSQL and MongoDB. Experienced in CRM/ERP applications, RESTful APIs, JWT/RBAC and AI-assisted development.",
+  location: "Amreli / Rajkot, Gujarat, India",
   email: "bavishiprince90@gmail.com",
   phone: "+91 90160 91157",
   phoneHref: "tel:+919016091157",
   url: "https://prince-bavishi.netlify.app",
   /* Drop the PDF at public/prince-bavishi-resume.pdf to activate this. */
-  resume: "/Prince_Bavishi_AI_FullStack.pdf",
+  resume: "/CV_Prince_Bavishi_Nov_2026.pdf",
   resumes: [
     {
       role: "Full Stack Developer",
-      subtitle: "AI & Full Stack Systems",
-      href: "/Prince_Bavishi_AI_FullStack.pdf",
-      filename: "Prince_Bavishi_AI_FullStack.pdf",
+      subtitle: "MERN & MEAN · CRM/ERP · AI-Assisted",
+      href: "/CV_Prince_Bavishi_Nov_2026.pdf",
+      filename: "CV_Prince_Bavishi_Nov_2026.pdf",
     },
     {
       role: "Forward Deployed Engineer",
@@ -38,58 +40,73 @@ export const nav = [
 export const experience = [
   {
     index: "01",
-    role: "Full Stack Engineer & AI Systems Developer",
-    focus: "Enterprise Systems · Agentic AI · ERP Architecture",
-    company: "Contract & Client Engagements",
-    location: "Remote",
-    period: "2025 — Present",
+    role: "Full Stack Engineer",
+    focus: "Production CRM & ERP · MERN & MEAN Stacks · AI-Assisted Dev",
+    company: "World Annex Infotech",
+    location: "Amreli, Gujarat, India",
+    period: "Sep 2026 — Present",
     summary:
-      "Architecting and shipping end-to-end custom software solutions and AI-assisted workflows for growing businesses, focusing on operational automation, scalable backend architectures, and resilient reactive client applications.",
+      "Developing and shipping new features for inventory and billing modules of a production CRM platform used by retailers, wholesalers, and manufacturers to manage sales, orders, and stock.",
     points: [
       {
-        label: "Flagship Platform",
-        text: "Architected Factory OS, an enterprise manufacturing ERP platform integrating CRM, dynamic quotation generation, inventory ledger reconciliation, and automated dispatch workflows.",
+        label: "Inventory & Billing Modules",
+        text: "Develop and ship new features for the inventory and billing modules of a production CRM platform used by retailers, wholesalers and manufacturers to manage sales, orders and stock.",
       },
       {
-        label: "Agentic AI & Nest.js Services",
-        text: "Integrated AI-assisted development practices and agentic automation pipelines, building modular microservices with Nest.js and Node.js for automated data processing and workflow acceleration.",
+        label: "Full-Stack SaaS Architecture",
+        text: "Build and maintain full-stack features using TypeScript, React.js, Angular, Node.js and NestJS with RESTful APIs, backed by MongoDB and PostgreSQL databases.",
       },
       {
-        label: "Full-Stack Execution",
-        text: "Delivering complete production solutions: normalized PostgreSQL data models, transactional Express & Nest.js APIs, and high-performance reactive frontends using Angular 17+ and PrimeNG.",
+        label: "Reliability & AI Velocity",
+        text: "Fix bugs and resolve production issues, and use AI-assisted development (Claude, OpenAI Codex, Google Antigravity) to speed up feature work, review code and test edge cases before release.",
       },
     ],
-    stack: ["Nest.js", "Angular", "Agentic AI", "AI-Assisted Dev", "Node.js", "Express.js", "PostgreSQL", "MongoDB"],
+    stack: [
+      "TypeScript",
+      "React.js",
+      "Angular",
+      "Node.js",
+      "NestJS",
+      "MongoDB",
+      "PostgreSQL",
+      "RESTful APIs",
+      "AI-Assisted Dev",
+    ],
   },
   {
     index: "02",
     role: "Software Developer",
-    focus: "Angular · Enterprise SaaS",
-    company: "Softrefine Technology Pvt. Ltd.",
-    location: "Rajkot, India",
-    period: "May 2025 — Present",
+    focus: "Angular · Enterprise Recruitment SaaS · Azure DevOps",
+    company: "SoftRefine Technology Pvt. Ltd.",
+    location: "Rajkot, Gujarat, India",
+    period: "May 2025 — Sep 2026",
     summary:
-      "Core contributor to a multi-tenant enterprise SaaS platform, engineering complex workflow engines, integrating real-time REST services, and ensuring high system reliability across production releases.",
+      "Developed production Angular, TypeScript, and RxJS modules for an enterprise recruitment and ATS SaaS platform, integrating REST APIs and third-party platforms.",
     points: [
       {
-        label: "Feature Ownership",
-        text: "Engineered critical hiring pipeline and workflow modules end-to-end, leveraging Angular, RxJS state management, and strict TypeScript architectures to guarantee rock-solid data reactivity.",
+        label: "Enterprise ATS Modules",
+        text: "Developed production Angular, TypeScript and RxJS modules for an enterprise recruitment/ATS SaaS platform, integrating REST APIs and third-party platforms.",
       },
       {
-        label: "API & Performance",
-        text: "Integrated REST APIs across high-traffic product modules, optimizing complex data grids, eliminating client-side bottlenecks, and maintaining state stability across asynchronous flows.",
+        label: "Reusable Architecture & UI",
+        text: "Built reusable shared services and UI components that kept business logic consistent across modules.",
       },
       {
-        label: "Production Reliability",
-        text: "Triaged and resolved complex production and QA defects; conducted comprehensive functional, regression, and API testing using Postman to safeguard release velocity.",
-      },
-      {
-        label: "Agile & Delivery",
-        text: "Collaborated in an Azure DevOps Scrum environment, driving features through sprint planning, acceptance criteria validation, code reviews, and release deployment.",
+        label: "QA Defect Triage & Agile Sprints",
+        text: "Resolved QA and production defects using DevTools and Postman, delivering in Agile/Scrum sprints on Azure DevOps.",
       },
     ],
-    stack: ["Angular", "TypeScript", "JavaScript", "RxJS", "SCSS", "Azure DevOps"],
-  }
+    stack: [
+      "Angular",
+      "TypeScript",
+      "JavaScript",
+      "RxJS",
+      "REST APIs",
+      "Azure DevOps",
+      "Postman",
+      "DevTools",
+    ],
+  },
 ];
 
 export type StackItem = { name: string; core?: boolean };
@@ -104,75 +121,103 @@ export const stack: {
   {
     index: "01",
     group: "Frontend",
-    note: "Angular first, daily",
+    note: "Angular & React, daily",
     items: [
-      { name: "Angular", core: true },
+      { name: "Angular (16+)", core: true },
+      { name: "React.js", core: true },
       { name: "TypeScript", core: true },
       { name: "JavaScript", core: true },
+      { name: "Redux", core: true },
       { name: "RxJS", core: true },
+      { name: "Signals", core: true },
       { name: "Angular Material", core: true },
       { name: "PrimeNG", core: true },
-      { name: "React.js", core: true },
+      { name: "Tailwind CSS", core: true },
+      { name: "SCSS", core: true },
       { name: "HTML5", core: true },
       { name: "CSS3", core: true },
-      { name: "SCSS", core: true },
-      { name: "Tailwind CSS", core: true },
-      { name: "Bootstrap 5" },
     ],
   },
   {
     index: "02",
     group: "Backend",
-    note: "APIs and services",
+    note: "APIs, auth & services",
     items: [
       { name: "Node.js", core: true },
       { name: "Express.js", core: true },
-      { name: "REST API design", core: true },
-      { name: "Core Java", core: true },
+      { name: "NestJS", core: true },
+      { name: "RESTful APIs", core: true },
       { name: "JWT Auth", core: true },
-      { name: "NestJS" },
-      { name: "Hibernate" },
-      { name: "Java Servlet" },
+      { name: "RBAC", core: true },
+      { name: "Core Java" },
     ],
   },
   {
     index: "03",
     group: "Data",
-    note: "Modelling and queries",
+    note: "Relational & NoSQL",
     items: [
-      { name: "SQL", core: true },
-      { name: "MySQL", core: true },
       { name: "MongoDB", core: true },
-      { name: "Schema design", core: true },
-      { name: "PostgreSQL" },
+      { name: "PostgreSQL", core: true },
+      { name: "MySQL", core: true },
+      { name: "Supabase", core: true },
+      { name: "SQL", core: true },
+      { name: "Schema Design", core: true },
     ],
   },
   {
     index: "04",
-    group: "Platform",
-    note: "Ship and collaborate",
+    group: "Cloud & AI",
+    note: "Pipelines & acceleration",
     items: [
-      { name: "Git", core: true },
-      { name: "GitHub", core: true },
+      { name: "AI-Assisted Dev", core: true },
+      { name: "Prompt Engineering", core: true },
+      { name: "LLM Integration", core: true },
       { name: "Azure DevOps", core: true },
+      { name: "Git & GitHub", core: true },
+      { name: "Docker", core: true },
       { name: "Postman", core: true },
-      { name: "VS Code", core: true },
-      { name: "Netlify" },
-      { name: "Docker" },
+      { name: "CI/CD", core: true },
+      { name: "AWS" },
+      { name: "Agile/Scrum", core: true },
     ],
   },
 ];
 
 export const education = [
   {
-    degree: "Master of Computer Application",
-    school: "Babasaheb Ambedkar Open University, Rajkot",
-    period: "2025 — 2027",
+    degree: "Master of Computer Applications (MCA)",
+    school: "Dr. Babasaheb Ambedkar Open University",
+    period: "2025 — 2027 (Pursuing)",
+    details:
+      "Coursework: Data Structures, Algorithms, Operating Systems, DBMS, Software Engineering, OOP, Computer Networks",
   },
   {
-    degree: "Bachelor of Computer Application",
-    school: "Saurashtra University, Rajkot",
+    degree: "Bachelor of Computer Applications (BCA)",
+    school: "Saurashtra University",
     period: "2022 — 2025",
+    details: "CGPA: 8.36 ⋄ Awarded Academic Excellence Award (2024)",
+  },
+];
+
+export const achievements = [
+  {
+    title: "Production Issue Resolution",
+    description:
+      "Resolved complex production issues that remained unsolved despite QA testing and senior engineering efforts.",
+    tag: "Production Impact",
+  },
+  {
+    title: "Portfolio SEO & Top Google Ranking",
+    description:
+      "Independently implemented SEO for my portfolio website, reaching a top Google ranking with 75+ clicks and 150+ impressions.",
+    tag: "Search Ranking",
+  },
+  {
+    title: "Academic Excellence Award (2024)",
+    description:
+      "Awarded for securing a top university rank in Bachelor of Computer Applications (BCA, CGPA: 8.36).",
+    tag: "Top University Rank",
   },
 ];
 
@@ -202,37 +247,66 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "factory-os",
+    slug: "ai-hiring-platform",
     index: "01",
-    title: "Factory OS",
-    kind: "Manufacturing & Distribution ERP Platform",
-    year: "2026",
+    title: "AI Hiring & Candidate Evaluation Platform",
+    kind: "Enterprise Recruitment SaaS — SoftRefine Technology",
+    year: "2025 — 2026",
     summary:
-      "Enterprise-grade manufacturing operations platform (ERP/MRP) unifying CRM, dynamic quotation generation, inventory ledger reconciliation, procurement, and dispatch tracking into a single operational system.",
+      "Enterprise recruitment and candidate evaluation SaaS platform streamlining technical assessments, automated hiring workflows, and candidate pipeline tracking.",
     contribution:
-      "Sole full-stack architect: modeled normalized PostgreSQL schemas, developed transactional REST APIs in Express/Node, and engineered the reactive Angular 17+ client using PrimeNG and fine-grained Signals.",
-    stack: ["PostgreSQL", "Express.js", "Angular", "Node.js", "PrimeNG", "RxJS", "Signals"],
-    featured: true,
-    category: "fullstack",
-  },
-  {
-    slug: "ats",
-    index: "02",
-    title: "AI-Powered Enterprise Applicant Tracking System (ATS)",
-    kind: "Enterprise Recruitment SaaS",
-    year: "2025 — Present",
-    summary:
-      "High-scale recruitment management software powering candidate sourcing, automated resume parsing, interview scheduling, and hiring workflows for enterprise organizations.",
-    contribution:
-      "Engineered core candidate pipeline modules, integrated complex backend endpoints, authored reusable UI component libraries, and optimized client-side rendering across high-volume hiring pipelines.",
-    stack: ["Angular", "TypeScript", "Angular Material", "RxJS", "REST APIs", "Azure DevOps"],
+      "Developed responsive recruiter dashboards and candidate evaluation workflows using Angular and REST API integrations; engineered reusable frontend modules and scalable component architecture; contributed to backend workflow handling and API integrations using Node.js and Express.js.",
+    stack: [
+      "Angular",
+      "JavaScript",
+      "Node.js",
+      "Express.js",
+      "REST APIs",
+      "Git",
+    ],
     confidential: true,
     featured: true,
     category: "product",
   },
   {
-    slug: "outreach-pro",
+    slug: "factory-os",
+    index: "02",
+    title: "Factory OS",
+    kind: "Manufacturing & Distribution ERP/CRM",
+    year: "2026",
+    summary:
+      "Full-scale manufacturing operations and distribution platform linking CRM, quotations, sales orders, inventory ledger reconciliation, procurement, production, and dispatch into a unified operational system.",
+    contribution:
+      "Built a full-stack platform linking CRM, quotations, sales orders, inventory, procurement, production and dispatch, with JWT/RBAC and module-level permissions using Angular, PrimeNG, RxJS, Signals, Node.js, and PostgreSQL.",
+    stack: [
+      "Angular",
+      "PrimeNG",
+      "RxJS",
+      "Signals",
+      "Node.js",
+      "PostgreSQL",
+      "JWT/RBAC",
+    ],
+    featured: true,
+    category: "fullstack",
+  },
+  {
+    slug: "real-estate",
     index: "03",
+    title: "Real Estate Management Platform (MERN)",
+    kind: "Full-Stack Property Management Platform",
+    year: "2025",
+    summary:
+      "Comprehensive multi-tenant real estate management platform featuring dedicated role-based workflows for customers, property sellers, real estate agents, and administrators.",
+    contribution:
+      "Developed role-based workflows for customers, sellers, agents and admins with responsive React UI and REST APIs on MongoDB with Tailwind CSS.",
+    stack: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS"],
+    featured: true,
+    category: "fullstack",
+  },
+  {
+    slug: "outreach-pro",
+    index: "04",
     title: "OutreachPro",
     kind: "Automated Cold Outreach & Lead Engine",
     year: "2025",
@@ -244,19 +318,5 @@ export const projects: Project[] = [
     repo: "https://github.com/PrinceDev90/OutreachPro-frontend",
     featured: true,
     category: "angular",
-  },
-  {
-    slug: "real-estate",
-    index: "04",
-    title: "Property Listing Platform",
-    kind: "Real Estate Marketplace Platform",
-    year: "2025",
-    summary:
-      "Full-stack property marketplace featuring dynamic multi-criteria search, agent portfolio dashboards, interactive property tours, and secure lead inquiry pipelines.",
-    contribution:
-      "Developed scalable REST APIs with Node.js and Express, designed indexed MongoDB document schemas, and implemented a responsive React frontend with efficient client-side filtering.",
-    stack: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS"],
-    featured: true,
-    category: "fullstack",
   },
 ];
